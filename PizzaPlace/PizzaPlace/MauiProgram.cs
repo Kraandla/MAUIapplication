@@ -11,8 +11,10 @@ namespace PizzaPlace
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Lato-Regular.ttf", "Regular");
+                    fonts.AddFont("Lato-Light.ttf", "Light");
+                    fonts.AddFont("Montserrat-Bold.ttf", "Bold");
+                    fonts.AddFont("Montserrat-Semibold.ttf", "Medium");
                 });
 
 #if DEBUG
