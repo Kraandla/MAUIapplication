@@ -13,6 +13,32 @@
                 Style="{StaticResource BottomButton}" 
                 Text="Menu"/>
                 <!--Clicked="MenuView"-->
+            <HorizontalStackLayout
+                Padding="0"
+                HorizontalOptions="Center">
+                <Button
+                    HorizontalOptions="Center"
+                    Margin="0"
+                    Style="{StaticResource AddRemovePictureButton}"
+                    Text="Add">
+                </Button>
+                <Button
+                    HorizontalOptions="Center"
+                    Margin="0"
+                    Style="{StaticResource AddRemovePictureButton}"
+                    Text="Del"></Button>
+            </HorizontalStackLayout>
+
+            <Button  
+                HorizontalOptions="Center"  
+                Margin="0,0,0,0"  
+                Style="{StaticResource EditDeleteButton}" 
+                Text="Menu"/>
+            <Button  
+                HorizontalOptions="Center"  
+                Margin="0,0,0,0"  
+                Style="{StaticResource EditDeleteButton}" 
+                Text="Menu"/>
         </VerticalStackLayout>  
     </ScrollView>  
 

@@ -16,4 +16,30 @@
         <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
     </Style>
 
+    <Style TargetType="Button" x:Key="AddRemovePictureButton">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HeightRequest" Value="20" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="Monsterrat-Bold" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderWidth" Value="0.5" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="EditDeleteButton">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HeightRequest" Value="20" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="Monsterrat-Bold" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderWidth" Value="0.5" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
+    </Style>
+
 </ResourceDictionary>
