@@ -1,8 +1,8 @@
 namespace PizzaPlace.Views;
 
-public partial class StartPage : ContentPage
+public partial class PizzaMenu : ContentPage
 {
-	public StartPage()
+	public PizzaMenu()
 	{
 		InitializeComponent();
 	}
