@@ -11,7 +11,7 @@ namespace PizzaPlace.Models
         public string Toppings { get; set; }
         public string Sauce { get; set; }
         public decimal Price { get; set; }
-        public DateTime CreatedAt { get; set;
+        public DateTime CreatedAt { get; set; }
         public Pizza Clone() => MemberwiseClone() as Pizza;
         public (bool isValid, string errorMessage) Validate()
         {
