@@ -3,10 +3,110 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaDetails"
              Title="PizzaDetails">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#666" Offset="0.0"/>
+            <GradientStop Color="#000" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <Grid Margin="24,52,24,0"
+        ColumnDefinitions="*,*"
+        RowDefinitions="Auto,*">
+
+        <ImageButton 
+          WidthRequest="24"
+          HeightRequest="24"
+          Source="back_button.png"
+          Grid.RowSpan="0"
+          Grid.Column="0"
+          HorizontalOptions="Start"
+          VerticalOptions="Center"
+          Clicked="BackButton_Clicked"/>
+        <ImageButton 
+          WidthRequest="24"
+          HeightRequest="24"
+          Source="imgmenu.png"
+          Grid.Row="0"
+          Grid.Column="1"
+          HorizontalOptions="End"
+          VerticalOptions="Center"
+          Clicked="MenuButton_Clicked"/>
+
+        <!--main Content scrollview-->
+        <ScrollView
+          Grid.Row="1"
+          Grid.Column="0"
+          Grid.ColumnSpan="2"
+          HorizontalScrollBarVisibility="Never"
+          VerticalScrollBarVisibility="Never"
+          Margin="0,16,0,0">
+            <VerticalStackLayout
+              Spacing="18">
+           
+                <Image
+                  Source="{Binding Image}"
+                  Aspect="AspectFit"
+                  HorizontalOptions="Fill"
+                  HeightRequest="240"
+                  Margin="24,0"/>
+
+                <Label
+                  Margin="0,-24,0,0"
+                  Style="{StaticResource AllPlanetHeaderSubtitleStyle}"
+                  Text="{Binding Name}"/>
+             
+                <Label
+                  Margin="0,-12,0,0"
+                  LineBreakMode="WordWrap"
+                  Style="{StaticResource PlanetHeaderSubtitleStyle}"
+                  Text="{Binding Size}"/>
+                <!--Divider-->
+                <Rectangle
+                  HorizontalOptions="Fill"
+                  HeightRequest="2"
+                  Stroke="Transparent"
+                  Fill="{StaticResource LightBorderColor}"/>
+
+          
+                <Label
+                  LineBreakMode="WordWrap"
+                  Style="{StaticResource PlanetDetailsTextStyle}"
+                  Text="{Binding Toppings}"/>
+                <Label
+                  LineBreakMode="WordWrap"
+                  Style="{StaticResource PlanetDetailsTextStyle}"
+                  Text="{Binding Sauce}"/>
+                <Label
+                  LineBreakMode="WordWrap"
+                  Style="{StaticResource PlanetDetailsTextStyle}"
+                  Text="{Binding Price}"/>
+
+                <!--Divider-->
+                <Rectangle
+                  HorizontalOptions="Fill"
+                  HeightRequest="2"
+                  Stroke="Transparent"
+                  Fill="{StaticResource LightBorderColor}"/>
+
+                <!--Edit delete pizza buttons-->
+                <Button  
+                   HorizontalOptions="Center"  
+                   Margin="0,0,0,0"  
+                   Style="{StaticResource EditDeleteButton}" 
+                   Text="Edit"
+                   Clicked="EditButton_Clicked"/>
+                <Button  
+                   HorizontalOptions="Center"  
+                   Margin="0,0,0,0"  
+                   Style="{StaticResource EditDeleteButton}" 
+                   BackgroundColor="{StaticResource Danger}"
+                   Text="Delete"/>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+
 </ContentPage>
