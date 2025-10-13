@@ -67,6 +67,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\PizzaMenu.xaml.cs">
+	    <DependentUpon>PizzaMenu.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PizzaCreateUpdate.xaml.cs">
+	    <DependentUpon>PizzaCreateUpdate.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\PizzaDetails.xaml.cs">
+	    <DependentUpon>PizzaDetails.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\PizzaCreateUpdate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PizzaDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PizzaMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
