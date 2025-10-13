@@ -7,12 +7,14 @@
         <VerticalStackLayout  
             Padding="30,0"  
             Spacing="25">
+            <!--main button-->
             <Button  
                 HorizontalOptions="Center"  
                 Margin="0,0,0,0"  
                 Style="{StaticResource BottomButton}" 
                 Text="Menu"/>
-                <!--Clicked="MenuView"-->
+            
+            <!--add/Delete picture button code-->
             <HorizontalStackLayout
                 Padding="0"
                 HorizontalOptions="Center">
@@ -28,7 +30,8 @@
                     Style="{StaticResource AddRemovePictureButton}"
                     Text="Del"></Button>
             </HorizontalStackLayout>
-
+            
+            <!--Edit delete pizza buttons-->
             <Button  
                 HorizontalOptions="Center"  
                 Margin="0,0,0,0"  
