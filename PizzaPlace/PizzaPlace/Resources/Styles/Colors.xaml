@@ -10,6 +10,8 @@
     <Color x:Key="Primary">#F7AD45</Color>
     <!--Main background color-->
     <Color x:Key="PrimaryLight">#FFF1D7</Color>
+    <!--Main background gradient-->
+    <Color x:Key="PrimaryGradient">#FACE90</Color>
     <!--Delete btns-->
     <Color x:Key="Danger">#BB3E00</Color>
     <!--Create btn-->

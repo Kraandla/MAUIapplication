@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
-             x:Class="PizzaPlace.MainPage">  
+             x:Class="PizzaPlace.MainPage">
 
-    <ScrollView>  
+    <ScrollView>
         <VerticalStackLayout  
             Padding="30,0"  
             Spacing="25">
@@ -13,7 +13,7 @@
                 Margin="0,0,0,0"  
                 Style="{StaticResource BottomButton}" 
                 Text="Menu"/>
-            
+
             <!--add/Delete picture button code-->
             <HorizontalStackLayout
                 Padding="0"
@@ -30,7 +30,7 @@
                     Style="{StaticResource AddRemovePictureButton}"
                     Text="Del"></Button>
             </HorizontalStackLayout>
-            
+
             <!--Edit delete pizza buttons-->
             <Button  
                 HorizontalOptions="Center"  
@@ -43,7 +43,31 @@
                 Style="{StaticResource EditDeleteButton}" 
                 BackgroundColor="{StaticResource Danger}"
                 Text="Delete"/>
-        </VerticalStackLayout>  
-    </ScrollView>  
+
+            <HorizontalStackLayout
+                Padding="20, 20">
+                <Label 
+                    Text="Test text"
+                    Style="{StaticResource PageHeadingH1}"
+                    SemanticProperties.HeadingLevel="Level1"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                Padding="20, 20">
+                <Label 
+                    Text="New text"
+                    Style="{StaticResource PageHeadingH2}"
+                    SemanticProperties.HeadingLevel="Level2"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                Padding="20, 20">
+                <Label
+                    Style="{StaticResource ParagraphText}"
+                    Text="Texting..."/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
