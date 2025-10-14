@@ -3,10 +3,123 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaCreateUpdate"
              Title="PizzaCreateUpdate">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout
+        x:Name = "MainContentLayout"
+        Padding="30, 50"
+        BackgroundColor="{StaticResource PrimaryLight}">
+
+        <HorizontalStackLayout
+            Spacing="64"
+            Grid.Row="0"
+            Grid.Column="0">
+
+            <ImageButton
+                WidthRequest="40"
+                Source="back_button.png"
+                HorizontalOptions="Start">
+            </ImageButton>
+
+            <!--replace fontsize textcolor with style resource when available-->
+            <Label
+                Text="Create/Update"
+                TextColor="{StaticResource Black}"
+                FontSize="34"
+                VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout
+            Margin="0,20"
+            Grid.Row="1"
+            Grid.Column="0">
+        </HorizontalStackLayout>
+
+        <!--Name input box-->
+        <Grid
+            Style="{StaticResource InputBoxGrid}">
+            <Label Text="Name:" Style="{StaticResource MainInfoLabel}"/>
+            <Entry
+                Placeholder="Price the Pizza"
+                Grid.Column="1"
+                Style="{StaticResource CreateUpdateInputBox}"
+                >
+            </Entry>
+        </Grid>
+
+
+        <Grid
+            Style="{StaticResource InputBoxGrid}">
+            <Label Text="Size:" Style="{StaticResource MainInfoLabel}"/>
+            <Entry
+                Placeholder="Price the Pizza"
+                Grid.Column="1"
+                Style="{StaticResource CreateUpdateInputBox}"
+                >
+            </Entry>
+        </Grid>
+
+        <Grid
+            Style="{StaticResource InputBoxGrid}">
+            <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
+            <Entry
+                Placeholder="Price the Pizza"
+                Grid.Column="1"
+                Style="{StaticResource CreateUpdateInputBox}"
+                >
+            </Entry>
+        </Grid>
+
+        <Grid
+            Style="{StaticResource InputBoxGrid}">
+            <Label Text="Sauce:" Style="{StaticResource MainInfoLabel}"/>
+            <Entry
+                Placeholder="Price the Pizza"
+                Grid.Column="1"
+                Style="{StaticResource CreateUpdateInputBox}"
+                >
+            </Entry>
+        </Grid>
+        <Grid
+            Style="{StaticResource InputBoxGrid}">
+            <Label Text="Price:" Style="{StaticResource MainInfoLabel}"/>
+            <Entry
+                Placeholder="Price the Pizza"
+                Grid.Column="1"
+                Style="{StaticResource CreateUpdateInputBox}"
+                >
+            </Entry>
+        </Grid>
+
+        <Grid>
+            <Label
+                Margin="0,0,0,0"
+                Text=""
+                TextColor="{StaticResource Black}"
+                BackgroundColor="White"
+                FontSize="24"
+                HeightRequest="46"
+                HorizontalOptions="Fill"/>
+
+            <HorizontalStackLayout
+                Padding="0"
+                HorizontalOptions="End">
+                <Button
+                    HorizontalOptions="Center"
+                    Margin="0"
+                    Style="{StaticResource AddRemovePictureButton}"
+                    Text="Add">
+                </Button>
+                <Button
+                    HorizontalOptions="Center"
+                    Margin="0"
+                    Style="{StaticResource AddRemovePictureButton}"
+                    Text="Del"></Button>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <Button  
+                HorizontalOptions="End"  
+                Margin="0,20,0,0"  
+                Style="{StaticResource BottomButton}" 
+                Text="Create Pizza"/>
     </VerticalStackLayout>
 </ContentPage>
