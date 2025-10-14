@@ -16,7 +16,8 @@
             <ImageButton
                 WidthRequest="40"
                 Source="back_button.png"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start"
+                Clicked="BackButton_Clicked">
             </ImageButton>
 
             <!--replace fontsize textcolor with style resource when available-->
