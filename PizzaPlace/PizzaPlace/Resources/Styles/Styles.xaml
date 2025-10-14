@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    
+    <!-- Buttons -->
     <Style TargetType="Button" x:Key="BottomButton">
         <Setter Property="FontSize" Value="22" />
         <Setter Property="HeightRequest" Value="52" />
@@ -42,6 +44,7 @@
         <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
     </Style>
 
+    <!-- Input box -->
     <Style TargetType="Entry" x:Key="CreateUpdateInputBox">
         <Setter Property="HeightRequest" Value="46"/>
         <Setter Property="FontSize" Value="20"/>
@@ -64,5 +67,44 @@
         <Setter Property="Margin" Value="0,5,0,5"/>
         <Setter Property="HorizontalOptions" Value="Fill"/>
         <Setter Property="ColumnDefinitions" Value="*,2.96*"/>
+    </Style>
+    <!--Text styles-->
+
+    <!--Font Base-->
+    <!--Bold Base-->
+    <Style TargetType="Label" x:Key="BoldText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Montserrat-Bold" />
+    </Style>
+
+    <!--Regular Base-->
+    <Style TargetType="Label" x:Key="RegularText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Lato-Regular" />
+    </Style>
+
+    <!--Light Base-->
+    <Style TargetType="Label" x:Key="LightText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Lato-Light" />
+    </Style>
+
+    <!--Headings-->
+    <!--H1-->
+    <Style TargetType="Label" x:Key="PageHeadingH1" BasedOn="{StaticResource BoldText}">
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <!--H2-->
+    <Style TargetType="Label" x:Key="PageHeadingH2" BasedOn="{StaticResource RegularText}">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <!--Paragraph-->
+    <Style TargetType="Label" x:Key="ParagraphText" BasedOn="{StaticResource LightText}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="Black" />
     </Style>
 </ResourceDictionary>
