@@ -16,6 +16,7 @@
     <Color x:Key="Success">#5F8D37</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
+    <Color x:Key="Gray">Gray</Color>
 
     <!--Borders-->
     <Color x:Key="BorderColor">transparent</Color>
