@@ -2,10 +2,10 @@ namespace PizzaPlace.Views;
 
 public partial class PizzaDetails : ContentPage
 {
-	public PizzaDetails(Models.Pizza pizza)
+	public PizzaDetails()
 	{
 		InitializeComponent();
-        this.BindingContext = pizza;
+        //this.BindingContext = pizza;
     }
 
     async void BackButton_Clicked(System.Object sender, System.EventArgs e)
@@ -22,6 +22,6 @@ public partial class PizzaDetails : ContentPage
     private async void EditButton_Clicked(object sender, EventArgs e)
     {
         var pizza = BindingContext as PizzaPlace.Models.Pizza;
-        await Navigation.PushModalAsync(new PizzaCreateUpdate(pizza));
+        await Navigation.PushModalAsync(new PizzaCreateUpdate());
     }
 }
