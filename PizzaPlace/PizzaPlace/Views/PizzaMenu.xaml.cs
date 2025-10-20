@@ -6,48 +6,44 @@ namespace PizzaPlace.Views;
 
 public partial class PizzaMenu : ContentPage
 {
-	private readonly DatabaseContext _db = new DatabaseContext();
-	private ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
-	
-	public PizzaMenu()
-	{
-		InitializeComponent();
-        LoadPizza();
-		PizzaMenuItems.ItemsSource = _pizzas;
-	}
+    private readonly DatabaseContext _db = new DatabaseContext();
+    private readonly ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
+
+    public PizzaMenu()
+    {
+        InitializeComponent();
+
+
+        PizzaMenuItems.ItemsSource = _pizzas;
+    }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        //await LoadPizza();
+        await LoadPizzas();
     }
 
-    //private async Task LoadPizza()
-    //{
-    //    var testPizza = new Pizza
-    //    {
-    //        Name = "Pepperoni",
-    //        Size = 35,
-    //        Toppings = "Pepperoni, Cheese",
-    //        Sauce = "Tomato",
-    //        Price = 10.0m,
-    //        CreatedAt = DateTime.Now
-    //    };
+    // Load pizzas from the SQLite database
+    private async Task LoadPizzas()
+    {
+        try
+        {
+            var pizzas = await _db.GetAllAsync<Pizza>();
 
-    //    var allPizzas = await _db.GetAllAsync<Pizza>();
-    //    if (!allPizzas.Any(p => p.Name == testPizza.Name))
-    //        await _db.AddItemAsync(testPizza);
+            _pizzas.Clear();
+            foreach (var pizza in pizzas)
+                _pizzas.Add(pizza);
 
-    //    var pizzas = await _db.GetAllAsync<Pizza>();
-    //    _pizzas.Clear();
-    //    foreach (var p in pizzas)
-    //        _pizzas.Add(p);
+            PizzaMenuItems.IsVisible = _pizzas.Any();
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Failed to load pizzas: {ex.Message}", "OK");
+        }
+    }
 
-    //    PizzaMenuItems.IsVisible = true;
-    //}
 
     private void PizzaMenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-
     }
 }

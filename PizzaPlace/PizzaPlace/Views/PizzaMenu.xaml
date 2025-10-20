@@ -5,24 +5,40 @@
              Title="PizzaMenu">
 
     <ContentPage.Content>
-        <Grid>
-            <CollectionView
-                x:Name="PizzaMenuItems"
-                IsVisible="False"
-                SelectionMode="Single"
-                SelectionChanged="PizzaMenuItems_SelectionChanged">
+        
+        <VerticalStackLayout
+            x:Name = "PizzaMenuBackground"
+            Padding="30, 50"
+            BackgroundColor="{StaticResource PrimaryLight}">
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" />
-                            <Label Text="{Binding Size}" />
-                            <Label Text="{Binding Toppings}" />
-                            <Label Text="{Binding Sauce}" />
-                        </VerticalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
+                <Grid>
+                    <CollectionView
+                    x:Name="PizzaMenuItems"
+                    IsVisible="False"
+                    SelectionMode="Single"
+                    SelectionChanged="PizzaMenuItems_SelectionChanged">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout>
+                                
+                                    <Label Text="Name: "  Style="{StaticResource PageHeadingH2}"/>
+                                    <Label Text="{Binding Name}"  Style="{StaticResource ParagraphText}"/>
+                                
+                                    <Label Text="Size: "  Style="{StaticResource PageHeadingH2}" />
+                                    <Label Text="{Binding Size}"  Style="{StaticResource ParagraphText}" />
+                                    
+                                    <Label Text="Toppings: "  Style="{StaticResource PageHeadingH2}"/>
+                                    <Label Text="{Binding Toppings}"  Style="{StaticResource ParagraphText}"/>
+                                    
+                                    <Label Text="Sauce: "  Style="{StaticResource PageHeadingH2}"/>
+                                    <Label Text="{Binding Sauce}"  Style="{StaticResource ParagraphText}"/>
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
