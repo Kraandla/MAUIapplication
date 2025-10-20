@@ -25,7 +25,7 @@ namespace PizzaPlace.Models
             if(string.IsNullOrWhiteSpace(Sauce))
                 return (false, "Sauce is required.");
             if (Price <= 0)
-                return (false, "Price cannot be negative.");
+                return (false, "Price cannot be less than 1.");
             return (true, null);
         }
     }

@@ -40,6 +40,12 @@
             Grid.Column="0">
         </HorizontalStackLayout>
 
+
+        <!--Input box fields-->
+        <Frame
+            BackgroundColor="{StaticResource PrimaryGradient}"
+            CornerRadius="20">
+        <VerticalStackLayout>
         <!--Name input box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
@@ -129,9 +135,12 @@
                     Text="Del"></Button>
             </HorizontalStackLayout>
         </Grid>
+            
+        </VerticalStackLayout>
+        </Frame>
 
         <Button  
-                HorizontalOptions="End"  
+                HorizontalOptions="Fill"  
                 Margin="0,20,0,0"  
                 Style="{StaticResource BottomButton}" 
                 Text="Save Pizza"
