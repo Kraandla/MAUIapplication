@@ -9,10 +9,16 @@
         <viewmodels:CreateUpdateViewModel />
     </ContentPage.BindingContext>
 
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+            <GradientStop Color="{StaticResource PrimaryGradient}" Offset="1.0"/>
+            <GradientStop Color="{StaticResource PrimaryLight}" Offset="0.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
     <VerticalStackLayout
         x:Name = "MainContentLayout"
-        Padding="30, 50"
-        BackgroundColor="{StaticResource PrimaryLight}">
+        Padding="30, 50">
 
         <HorizontalStackLayout
             Spacing="64"
@@ -42,10 +48,12 @@
 
 
         <!--Input box fields-->
-        <Frame
+        <Border
             BackgroundColor="{StaticResource PrimaryGradient}"
-            CornerRadius="20">
-        <VerticalStackLayout>
+            Stroke="{StaticResource Primary}"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="3">
+        <VerticalStackLayout Padding="10">
         <!--Name input box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
@@ -137,7 +145,7 @@
         </Grid>
             
         </VerticalStackLayout>
-        </Frame>
+        </Border>
 
         <Button  
                 HorizontalOptions="Fill"  
