@@ -9,7 +9,8 @@ public partial class StartPage : ContentPage
     {
         "pizza1.png",
         "pizza2.png",
-        "pizza3.png"
+        "pizza3.png",
+        "pizza4.png"
     };
 
     int _currentIndex = 0;
