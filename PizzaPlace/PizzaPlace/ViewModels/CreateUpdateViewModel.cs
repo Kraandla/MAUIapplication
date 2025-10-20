@@ -58,5 +58,38 @@ namespace PizzaPlace.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Error", "Failed to save pizza.", "OK");
             }
         }
+
+
+        public string PizzaImageName => Path.GetFileName(Pizza.Image ?? "");
+
+        [RelayCommand]
+        private async Task PickImage()
+        {
+            try
+            {
+                var photo = await MediaPicker.Default.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Select a pizza image"
+                });
+
+                if (photo != null)
+                {
+                    Pizza.Image = photo.FullPath;
+                    OnPropertyChanged(nameof(Pizza));
+                    OnPropertyChanged(nameof(PizzaImageName));
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+
+        [RelayCommand]
+        private void DeleteImage()
+        {
+            Pizza.Image = null;
+            OnPropertyChanged(nameof(Pizza));
+        }
     }
 }
