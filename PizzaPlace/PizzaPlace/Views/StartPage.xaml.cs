@@ -12,5 +12,7 @@ public partial class StartPage : ContentPage
     }
 
     async void PizzaMenu_Clicked(object sender, EventArgs e)
-        => Application.Current.MainPage = new NavigationPage(new PizzaMenu());
+    {
+        await Navigation.PushAsync(new Views.PizzaMenu());
+    }
 }

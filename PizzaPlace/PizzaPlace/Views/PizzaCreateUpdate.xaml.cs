@@ -19,6 +19,8 @@ public partial class PizzaCreateUpdate : ContentPage
         BindingContext = new CreateUpdateViewModel(pizza);
     }
 
-    async void BackButton_Clicked(System.Object sender, System.EventArgs e)
-        => Application.Current.MainPage = new NavigationPage(new PizzaMenu());
+    async void BackButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }
