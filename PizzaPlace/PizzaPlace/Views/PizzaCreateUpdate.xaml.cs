@@ -1,4 +1,5 @@
 using PizzaPlace.Models;
+using PizzaPlace.ViewModels;
 
 namespace PizzaPlace.Views;
 
@@ -9,13 +10,13 @@ public partial class PizzaCreateUpdate : ContentPage
     public PizzaCreateUpdate()
 	{
 		InitializeComponent();
+        BindingContext = new CreateUpdateViewModel();
 	}
 
-    public PizzaCreateUpdate(Pizza? pizza)
+    public PizzaCreateUpdate(Pizza pizza)
     {
-        InitializeComponent(); // Ensure XAML is loaded
-        this.pizza = pizza;
-        BindingContext = pizza;
+        InitializeComponent();
+        BindingContext = new CreateUpdateViewModel(pizza);
     }
 
     async void BackButton_Clicked(System.Object sender, System.EventArgs e)
