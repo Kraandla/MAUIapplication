@@ -3,20 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaMenu"
              Title="PizzaMenu">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button 
-            Text="CreateUpdate"
-            Style="{StaticResource BottomButton}"
-            Clicked="Create">
-        </Button>
-        <Button 
-            Text="CreateUpdate"
-            Style="{StaticResource BottomButton}"
-            Clicked="Details">
-        </Button>
-    </VerticalStackLayout>
+
+    <ContentPage.Content>
+
+        <VerticalStackLayout
+            x:Name = "PizzaMenuBackground"
+            Padding="30, 50"
+            BackgroundColor="{StaticResource PrimaryLight}">
+
+            <CollectionView
+                x:Name="PizzaMenuItems"
+                IsVisible="False"
+                SelectionMode="Single"
+                SelectionChanged="PizzaMenuItems_SelectionChanged"
+                ItemsLayout="VerticalList">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame 
+                            Margin="10, 10"
+                            Padding="10"
+                            BackgroundColor="{StaticResource White}">
+
+                            <Grid 
+                                ColumnDefinitions="100, *, Auto" 
+                                RowDefinitions="Auto, Auto, Auto, Auto" 
+                                ColumnSpacing="10">
+
+                                <Image 
+                                    Source="hawaiian.svg"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="0"
+                                    WidthRequest="80"
+                                    HeightRequest="80"
+                                    Aspect="AspectFill"
+                                    VerticalOptions="Center"/>
+                                    
+                                <Label 
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    Style="{StaticResource PageHeadingH1}"/>
+                                
+                                <Label Grid.Row="0"
+                                        Grid.Column="3"
+                                        Text="{Binding Price}"
+                                        Style="{StaticResource PageHeadingH1}" />
+
+                                <Label Grid.Row="1"
+                                        Grid.Column="1"
+                                        Text="{Binding Size}"
+                                        Style="{StaticResource ParagraphText}" />
+                                
+                                        
+                                <Label Grid.Row="2"
+                                        Grid.Column="1"
+                                        Text="{Binding Toppings}"
+                                        Style="{StaticResource ParagraphText}" />
+
+                                <Label Grid.Row="3"
+                                        Grid.Column="1"
+                                        Text="{Binding Sauce}"
+                                        Style="{StaticResource ParagraphText}" />
+
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+ 
+        </VerticalStackLayout>
+    </ContentPage.Content>
 </ContentPage>
