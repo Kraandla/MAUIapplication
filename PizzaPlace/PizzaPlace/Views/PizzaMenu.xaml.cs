@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Numerics;
 using PizzaPlace.Data;
 using PizzaPlace.Models;
 
@@ -12,8 +13,6 @@ public partial class PizzaMenu : ContentPage
     public PizzaMenu()
     {
         InitializeComponent();
-
-
         PizzaMenuItems.ItemsSource = _pizzas;
     }
 
@@ -23,7 +22,6 @@ public partial class PizzaMenu : ContentPage
         await LoadPizzas();
     }
 
-    // Load pizzas from the SQLite database
     private async Task LoadPizzas()
     {
         try
@@ -36,14 +34,19 @@ public partial class PizzaMenu : ContentPage
 
             PizzaMenuItems.IsVisible = _pizzas.Any();
         }
+
         catch (Exception ex)
         {
             await DisplayAlert("Error", $"Failed to load pizzas: {ex.Message}", "OK");
         }
     }
 
-
-    private void PizzaMenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void PizzaMenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
+
+        var selectedPizza = e.CurrentSelection.FirstOrDefault() as Pizza;
+
+        //wait Navigation.PushAsync(new PizzaDetails(selectedPizza));
+
     }
 }

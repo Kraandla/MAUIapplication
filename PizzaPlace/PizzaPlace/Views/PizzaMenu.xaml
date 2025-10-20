@@ -11,58 +11,66 @@
             Padding="30, 50"
             BackgroundColor="{StaticResource PrimaryLight}">
 
-            <HorizontalStackLayout
-                Spacing="64"
-                Grid.Row="0"
-                Grid.Column="0">
+            <Grid 
+                ColumnDefinitions="Auto, *, Auto"
+                Margin="0,0,0,50">
 
                 <ImageButton
-                WidthRequest="40"
-                Source="back_button.png"
-                HorizontalOptions="Start"
-                Clicked="BackButton_Clicked">
+                    Grid.Column="0"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    Source="back_button.png"
+                    HorizontalOptions="Start">
                 </ImageButton>
 
-
                 <Label
-                Text="Pizza Menu"
-                TextColor="{StaticResource Black}"
-                Style="{StaticResource PageHeadingH1}"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-            </HorizontalStackLayout>
-            
+                    Grid.Column="1"
+                    Text="Pizza Menu"
+                    TextColor="{StaticResource Black}"
+                    Style="{StaticResource PageHeadingH1}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                
+            </Grid>
+
+
             <CollectionView
                 x:Name="PizzaMenuItems"
                 IsVisible="False"
                 SelectionMode="Single"
                 SelectionChanged="PizzaMenuItems_SelectionChanged">
-
                 
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     
                     <DataTemplate>
-                        <Frame 
-                            Margin="10"
-                            Padding="10"
+                        <Border 
+                            Stroke="{StaticResource Primary}"
                             BackgroundColor="{StaticResource White}"
-                            BorderColor="{StaticResource Primary}">
+                            StrokeThickness="6"
+                            StrokeShape="RoundRectangle 16,16,16,16"
+                            Padding="0, 0, 0, 0"
+                            HorizontalOptions="Center">
 
                             <Grid 
-                                ColumnDefinitions="100, *, Auto" 
+                                ColumnDefinitions="220, *, Auto" 
                                 RowDefinitions="Auto, Auto, Auto, Auto" 
-                                ColumnSpacing="10"
-                                Padding="10">
+                                ColumnSpacing="0"
+                                Padding="32,24">
                            
 
                                 <Image 
-                                    Source="{Binding Image}"
+                                    Source="margherita.png"
                                     Grid.RowSpan="4"
                                     Grid.Column="0"
-                                    WidthRequest="80"
-                                    HeightRequest="80"
+                                    WidthRequest="360"
+                                    HeightRequest="360"
                                     Aspect="AspectFill"
-                                    VerticalOptions="Center"/>
+                                    Margin="0,-140,120,-240"/>
+                                    <!--Margin="0,-140,120,-210"-->
                                     
                                 <Label 
                                     Grid.Row="0"
@@ -81,7 +89,7 @@
                                         Style="{StaticResource PageHeadingH2}" />
                                 
                                         
-                                <Label Grid.Row="2"
+                                <!--<Label Grid.Row="2"
                                         Grid.Column="1"
                                         Text="{Binding Toppings, StringFormat='Toppings: {0}'}"
                                         Style="{StaticResource ParagraphText}" />
@@ -89,10 +97,10 @@
                                 <Label Grid.Row="3"
                                         Grid.Column="1"
                                         Text="{Binding Sauce, StringFormat='Sauce: {0}'}"
-                                        Style="{StaticResource ParagraphText}" />
+                                        Style="{StaticResource ParagraphText}" />-->
 
                             </Grid>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
