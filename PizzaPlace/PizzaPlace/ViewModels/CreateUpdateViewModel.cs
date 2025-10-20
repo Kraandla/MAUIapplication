@@ -12,6 +12,9 @@ namespace PizzaPlace.ViewModels
         [ObservableProperty]
         private Pizza pizza;
 
+        [ObservableProperty]
+        private string image;
+
         public CreateUpdateViewModel()
         {
             _dbContext = new DatabaseContext();
@@ -89,7 +92,7 @@ namespace PizzaPlace.ViewModels
         private void DeleteImage()
         {
             Pizza.Image = null;
-            OnPropertyChanged(nameof(Pizza));
+            OnPropertyChanged(nameof(PizzaImageName));
         }
     }
 }

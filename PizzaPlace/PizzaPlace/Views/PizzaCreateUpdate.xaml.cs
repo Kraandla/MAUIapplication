@@ -25,13 +25,4 @@ public partial class PizzaCreateUpdate : ContentPage
         await Navigation.PopAsync();
     }
 
-    private async void PickImage(object sender, EventArgs e)
-    {
-        FileResult photo = await MediaPicker.Default.PickPhotoAsync(new MediaPickerOptions
-        {
-            Title = "Select your photo"
-        });
-
-    }
-
 }
