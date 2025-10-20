@@ -8,5 +8,15 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button 
+            Text="CreateUpdate"
+            Style="{StaticResource BottomButton}"
+            Clicked="Create">
+        </Button>
+        <Button 
+            Text="CreateUpdate"
+            Style="{StaticResource BottomButton}"
+            Clicked="Details">
+        </Button>
     </VerticalStackLayout>
 </ContentPage>

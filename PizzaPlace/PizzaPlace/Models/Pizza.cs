@@ -10,7 +10,8 @@ namespace PizzaPlace.Models
         public int Size { get; set; }
         public string Toppings { get; set; }
         public string Sauce { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
+        public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
         public Pizza Clone() => MemberwiseClone() as Pizza;
         public (bool isValid, string errorMessage) Validate()

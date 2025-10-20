@@ -32,7 +32,7 @@ namespace PizzaPlace
         {
             // Mainpage code =
             //return new Window(new AppShell());
-            return new Window(new Views.StartPage());
+            return new Window(new NavigationPage(new Views.StartPage()));
         }
     }
 }
