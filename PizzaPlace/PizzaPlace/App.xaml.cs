@@ -31,12 +31,6 @@ namespace PizzaPlace
             });
         }
 
-        private async void InitializeDatabase()
-        {
-            var db = new DatabaseContext();
-            await db.SeedDataAsync();
-        }
-
         protected override Window CreateWindow(IActivationState? activationState)
         {
             // Mainpage code =
