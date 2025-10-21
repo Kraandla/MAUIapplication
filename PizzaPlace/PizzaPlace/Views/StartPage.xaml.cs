@@ -1,6 +1,3 @@
-using Microsoft.Maui.Controls;
-using System.Collections.Generic;
-
 namespace PizzaPlace.Views;
 
 public partial class StartPage : ContentPage
