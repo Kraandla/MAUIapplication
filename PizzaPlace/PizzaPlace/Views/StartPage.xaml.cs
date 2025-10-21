@@ -16,6 +16,17 @@ public partial class StartPage : ContentPage
     public StartPage()
     {
         InitializeComponent();
+        SizeChanged += OnSized; 
+    }
+
+    void OnSized(object? sender, EventArgs e)
+    {
+        if (Width <= 0 || Height <= 0)
+            return;
+
+        double imgWidth = Width * 0.7;
+        SlideshowImage.WidthRequest = imgWidth;
+        SlideshowImage.HeightRequest = imgWidth; 
     }
 
     protected override async void OnAppearing()
@@ -30,14 +41,16 @@ public partial class StartPage : ContentPage
         while (_running)
         {
             SlideshowImage.Source = _images[_currentIndex];
+            SlideshowImage.Opacity = 0;
+            SlideshowImage.TranslationY = -SlideshowImage.HeightRequest * 0.1; 
 
-            //fade in
-            await SlideshowImage.FadeTo(1, 800, Easing.CubicIn);
+            await Task.WhenAll(
+                SlideshowImage.FadeTo(1, 800, Easing.CubicIn),
+                SlideshowImage.TranslateTo(0, 0, 800, Easing.CubicOut)
+            );
 
-            //stay visible for a moment
-            await Task.Delay(4000);
+            await Task.Delay(3500);
 
-            //fade out
             await SlideshowImage.FadeTo(0, 1000, Easing.CubicOut);
 
             _currentIndex = (_currentIndex + 1) % _images.Count;
@@ -48,6 +61,7 @@ public partial class StartPage : ContentPage
     {
         base.OnDisappearing();
         _running = false;
+        SlideshowImage.CancelAnimations();
     }
 
     async void PizzaMenu_Clicked(object sender, EventArgs e)
