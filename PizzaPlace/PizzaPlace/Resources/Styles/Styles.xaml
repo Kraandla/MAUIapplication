@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
-    
     <!-- Buttons -->
     <Style TargetType="Button" x:Key="BottomButton">
         <Setter Property="FontSize" Value="22" />

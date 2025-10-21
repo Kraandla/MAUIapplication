@@ -43,7 +43,9 @@
                 SelectionChanged="PizzaMenuItems_SelectionChanged">
                 
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="8"
+                                       />
                 </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
@@ -60,8 +62,9 @@
                             <Grid 
                                 ColumnDefinitions="220, *, Auto" 
                                 RowDefinitions="Auto, Auto, Auto, Auto" 
-                                ColumnSpacing="0"
-                                Padding="32,24">
+                                ColumnSpacing="20"
+                                Padding="32,24"
+                                MaximumWidthRequest="780">
                            
 
                                 <Image 
@@ -88,7 +91,7 @@
                                 <Label Grid.Row="1"
                                         Grid.Column="1"
                                         Text="{Binding Size, StringFormat='∅ {0} cm'}"
-                                        Style="{StaticResource PageHeadingH2}" />
+                                        Style="{StaticResource ParagraphText}" />
                                 
                                         
                                 <!--<Label Grid.Row="2"
