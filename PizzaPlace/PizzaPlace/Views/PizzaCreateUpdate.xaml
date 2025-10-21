@@ -49,7 +49,7 @@
 
         <!--Input box fields-->
         <Border
-            BackgroundColor="{StaticResource PrimaryGradient}"
+            BackgroundColor="{StaticResource White}"
             Stroke="{StaticResource Primary}"
             StrokeShape="RoundRectangle 20"
             StrokeThickness="3">
@@ -127,7 +127,7 @@
                 Margin="0,0,0,0"
                 Text="{Binding PizzaImageName}"
                 TextColor="{StaticResource Black}"
-                BackgroundColor="White"
+                BackgroundColor="{StaticResource PrimaryLight}"
                 FontSize="24"
                 HeightRequest="46"
                 HorizontalOptions="Fill"/>

@@ -50,7 +50,7 @@
         <Setter Property="HeightRequest" Value="46"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryLight}"/>
         <Setter Property="PlaceholderColor" Value="{StaticResource Gray}"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="VerticalOptions" Value="Start"/>
