@@ -53,7 +53,9 @@
             Stroke="{StaticResource Primary}"
             StrokeShape="RoundRectangle 20"
             StrokeThickness="3">
+        
         <VerticalStackLayout Padding="10">
+            
         <!--Name input box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
@@ -67,7 +69,7 @@
             </Entry>
         </Grid>
         
-        
+        <!--Size input box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Size:" Style="{StaticResource MainInfoLabel}"/>
@@ -80,18 +82,20 @@
             </Entry>
         </Grid>
         
+        <!--Toppings info box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
                 Text="{Binding Pizza.Toppings}"
-                Placeholder="Price the Pizza"
+                Placeholder="Add toppings to the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
                 >
             </Entry>
         </Grid>
-
+        
+        <!--Sauce info box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Sauce:" Style="{StaticResource MainInfoLabel}"/>
@@ -103,6 +107,8 @@
                 >
             </Entry>
         </Grid>
+            
+        <!--Price input box-->
         <Grid
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Price:" Style="{StaticResource MainInfoLabel}"/>
@@ -115,6 +121,7 @@
             </Entry>
         </Grid>
 
+        <!--Image input container-->
         <Grid>
             <Label
                 Margin="0,0,0,0"
@@ -147,6 +154,7 @@
         </VerticalStackLayout>
         </Border>
 
+        <!--Save pizza button-->
         <Button  
                 HorizontalOptions="Fill"  
                 Margin="0,20,0,0"  
