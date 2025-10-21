@@ -19,7 +19,7 @@ namespace PizzaPlace
 
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
-#if WINDOWS
+                #if WINDOWS
                 var mauiWindow = handler.VirtualView;
                 var nativeWindow = handler.PlatformView;
                 nativeWindow.Activate();
@@ -27,7 +27,7 @@ namespace PizzaPlace
                 WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(windowHandle);
                 AppWindow appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
                 appWindow.Resize(new SizeInt32(WindowWidth, WindowHeight));
-#endif
+                #endif
             });
         }
         private async void InitializeDatabase()
@@ -40,7 +40,7 @@ namespace PizzaPlace
         {
             // Mainpage code =
             //return new Window(new AppShell());
-            return new Window(new Views.PizzaMenu());
+            return new Window(new NavigationPage(new Views.StartPage()));
         }
     }
 }

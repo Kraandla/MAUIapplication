@@ -4,6 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    
+    <!-- Buttons -->
     <Style TargetType="Button" x:Key="BottomButton">
         <Setter Property="FontSize" Value="22" />
         <Setter Property="HeightRequest" Value="52" />
@@ -18,14 +20,14 @@
 
     <Style TargetType="Button" x:Key="AddRemovePictureButton">
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="HeightRequest" Value="20" />
-        <Setter Property="WidthRequest" Value="40" />
-        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="HeightRequest" Value="46" />
+        <Setter Property="WidthRequest" Value="56" />
+        <Setter Property="Padding" Value="0,0" />
         <Setter Property="TextColor" Value="{StaticResource Black}" />
         <Setter Property="FontFamily" Value="Monsterrat-Bold" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-        <Setter Property="BorderWidth" Value="0.5" />
+        <Setter Property="BorderWidth" Value="0" />
         <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
     </Style>
 
@@ -42,6 +44,30 @@
         <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
     </Style>
 
+    <!-- Input box -->
+    <Style TargetType="Entry" x:Key="CreateUpdateInputBox">
+        <Setter Property="HeightRequest" Value="46"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="PlaceholderColor" Value="{StaticResource Gray}"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="MainInfoLabel">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="Margin" Value="0,10,0,10"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+
+    <Style TargetType="Grid" x:Key="InputBoxGrid">
+        <Setter Property="Margin" Value="0,5,0,5"/>
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+        <Setter Property="ColumnDefinitions" Value="*,2.96*"/>
+    </Style>
     <!--Text styles-->
 
     <!--Font Base-->
