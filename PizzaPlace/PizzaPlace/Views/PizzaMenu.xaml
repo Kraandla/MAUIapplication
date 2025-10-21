@@ -11,33 +11,66 @@
             Padding="30, 50"
             BackgroundColor="{StaticResource PrimaryLight}">
 
+            <Grid 
+                ColumnDefinitions="Auto, *, Auto"
+                Margin="0,0,0,50">
+
+                <ImageButton
+                    Grid.Column="0"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    Source="back_button.png"
+                    HorizontalOptions="Start">
+                </ImageButton>
+
+                <Label
+                    Grid.Column="1"
+                    Text="Pizza Menu"
+                    TextColor="{StaticResource Black}"
+                    Style="{StaticResource PageHeadingH1}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+                
+            </Grid>
+
+
             <CollectionView
                 x:Name="PizzaMenuItems"
                 IsVisible="False"
                 SelectionMode="Single"
-                SelectionChanged="PizzaMenuItems_SelectionChanged"
-                ItemsLayout="VerticalList">
+                SelectionChanged="PizzaMenuItems_SelectionChanged">
+                
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
+                    
                     <DataTemplate>
-                        <Frame 
-                            Margin="10, 10"
-                            Padding="10"
-                            BackgroundColor="{StaticResource White}">
+                        <Border 
+                            Stroke="{StaticResource Primary}"
+                            BackgroundColor="{StaticResource White}"
+                            StrokeThickness="6"
+                            StrokeShape="RoundRectangle 16,16,16,16"
+                            Padding="0, 0, 0, 0"
+                            HorizontalOptions="Center">
 
                             <Grid 
-                                ColumnDefinitions="100, *, Auto" 
+                                ColumnDefinitions="220, *, Auto" 
                                 RowDefinitions="Auto, Auto, Auto, Auto" 
-                                ColumnSpacing="10">
+                                ColumnSpacing="0"
+                                Padding="32,24">
+                           
 
                                 <Image 
-                                    Source="hawaiian.svg"
+                                    Source="margherita.png"
                                     Grid.RowSpan="4"
                                     Grid.Column="0"
-                                    WidthRequest="80"
-                                    HeightRequest="80"
+                                    WidthRequest="360"
+                                    HeightRequest="360"
                                     Aspect="AspectFill"
-                                    VerticalOptions="Center"/>
+                                    Margin="0,-140,120,-240"/>
+                                    <!--Margin="0,-140,120,-210"-->
                                     
                                 <Label 
                                     Grid.Row="0"
@@ -46,30 +79,30 @@
                                     Style="{StaticResource PageHeadingH1}"/>
                                 
                                 <Label Grid.Row="0"
-                                        Grid.Column="3"
-                                        Text="{Binding Price}"
+                                        Grid.Column="2"
+                                        Text="{Binding Price, StringFormat='€{0:F2}'}"
                                         Style="{StaticResource PageHeadingH1}" />
 
                                 <Label Grid.Row="1"
                                         Grid.Column="1"
-                                        Text="{Binding Size}"
-                                        Style="{StaticResource ParagraphText}" />
+                                        Text="{Binding Size, StringFormat='∅ {0} cm'}"
+                                        Style="{StaticResource PageHeadingH2}" />
                                 
                                         
-                                <Label Grid.Row="2"
+                                <!--<Label Grid.Row="2"
                                         Grid.Column="1"
-                                        Text="{Binding Toppings}"
+                                        Text="{Binding Toppings, StringFormat='Toppings: {0}'}"
                                         Style="{StaticResource ParagraphText}" />
 
                                 <Label Grid.Row="3"
                                         Grid.Column="1"
-                                        Text="{Binding Sauce}"
-                                        Style="{StaticResource ParagraphText}" />
-
+                                        Text="{Binding Sauce, StringFormat='Sauce: {0}'}"
+                                        Style="{StaticResource ParagraphText}" />-->
 
                             </Grid>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
+
                 </CollectionView.ItemTemplate>
             </CollectionView>
  
