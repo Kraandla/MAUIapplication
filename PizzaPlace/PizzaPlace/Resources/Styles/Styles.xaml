@@ -44,30 +44,6 @@
         <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
     </Style>
 
-    <!-- Input box -->
-    <Style TargetType="Entry" x:Key="CreateUpdateInputBox">
-        <Setter Property="HeightRequest" Value="46"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="TextColor" Value="{StaticResource Black}"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
-        <Setter Property="PlaceholderColor" Value="{StaticResource Gray}"/>
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="VerticalOptions" Value="Start"/>
-        <Setter Property="HorizontalOptions" Value="Fill"/>
-    </Style>
-
-    <Style TargetType="Label" x:Key="MainInfoLabel">
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="TextColor" Value="{StaticResource Black}"/>
-        <Setter Property="Margin" Value="0,10,0,10"/>
-        <Setter Property="HorizontalOptions" Value="Start"/>
-    </Style>
-
-    <Style TargetType="Grid" x:Key="InputBoxGrid">
-        <Setter Property="Margin" Value="0,5,0,5"/>
-        <Setter Property="HorizontalOptions" Value="Fill"/>
-        <Setter Property="ColumnDefinitions" Value="*,2.96*"/>
-    </Style>
     <!--Text styles-->
 
     <!--Font Base-->

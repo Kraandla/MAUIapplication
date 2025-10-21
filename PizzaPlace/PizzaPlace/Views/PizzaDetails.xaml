@@ -5,63 +5,71 @@
              Title="PizzaDetails">
     <VerticalStackLayout
         x:Name = "MainContentLayout"
-        Padding="30, 50"
+        Padding="0"
         BackgroundColor="{StaticResource PrimaryLight}">
-        <Grid Margin="24,52,24,0"
+        <Grid 
         ColumnDefinitions="*,*"
         RowDefinitions="Auto,*">
 
-            <ImageButton 
-          WidthRequest="24"
-          HeightRequest="24"
-          Source="back_button.png"
-          Grid.RowSpan="0"
-          Grid.Column="0"
-          HorizontalOptions="Start"
-          VerticalOptions="Center"
-          Clicked="BackButton_Clicked"/>
-            <ImageButton 
-          WidthRequest="24"
-          HeightRequest="24"
-          Source="imgmenu.png"
-          Grid.Row="0"
-          Grid.Column="1"
-          HorizontalOptions="End"
-          VerticalOptions="Center"
-          Clicked="MenuButton_Clicked"/>
+            <!-- Header - Full Width -->
+            <Grid Grid.Row="0" 
+                  Grid.ColumnSpan="2" 
+                  Padding="20" 
+                  BackgroundColor="{StaticResource Primary}"
+                  ColumnDefinitions="Auto,*,Auto">
+
+                <ImageButton 
+                    Grid.Column="0"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    Source="back_button.png"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Clicked="BackButton_Clicked"/>
+
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    TextColor="{StaticResource Black}"
+                    Style="{StaticResource BoldText}"
+                    Text="{Binding Name}"/>
+        
+                <ImageButton 
+                    Grid.Column="2"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    Source="imgmenu.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Clicked="MenuButton_Clicked"/>
+            </Grid>
 
             <!--main Content scrollview-->
             <ScrollView
-          Grid.Row="1"
-          Grid.Column="0"
-          Grid.ColumnSpan="2"
-          HorizontalScrollBarVisibility="Never"
-          VerticalScrollBarVisibility="Never"
-          Margin="0,16,0,0">
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never"
+                Margin="24,16,24,0">
                 <VerticalStackLayout
-              Spacing="18">
+                    Spacing="18">
 
                     <Image
-                  Source="{Binding Image}"
-                  Aspect="AspectFit"
-                  HorizontalOptions="Fill"
-                  HeightRequest="240"
-                  Margin="24,0"/>
+                        Source="{Binding Image}"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Fill"
+                        HeightRequest="240"
+                        Margin="24,0"/>
 
                     <Label
+                        Margin="0,-12,0,0"
                         HorizontalTextAlignment="Center"
-                  Margin="0,-24,0,0"
-                  TextColor="{StaticResource Black}"
-                  Style="{StaticResource BoldText}"
-                  Text="{Binding Name}"/>
-
-                    <Label
-                  Margin="0,-12,0,0"
-                  HorizontalTextAlignment="Center"
-                  LineBreakMode="WordWrap"
-                  TextColor="{StaticResource Black}"
-                  Style="{StaticResource RegularText}"
-                  >
+                        LineBreakMode="WordWrap"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource RegularText}"
+                        >
                         <Label.Text>
                             <MultiBinding StringFormat="Size: {0} cm">
                                 <Binding Path="Size" />
@@ -70,17 +78,17 @@
                     </Label>
                     <!--Divider-->
                     <Rectangle
-                  HorizontalOptions="Fill"
-                  HeightRequest="2"
-                  Stroke="Transparent"
-                  Fill="{StaticResource BorderColor}"/>
+                        HorizontalOptions="Fill"
+                        HeightRequest="2"
+                        Stroke="Transparent"
+                        Fill="{StaticResource BorderColor}"/>
 
 
                     <Label
-                  LineBreakMode="WordWrap"
-                  TextColor="{StaticResource Black}"
-                  Style="{StaticResource LightText}"
-                  >
+                        LineBreakMode="WordWrap"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource LightText}"
+                        >
                         <Label.Text>
                             <MultiBinding StringFormat="Toppings:  {0}">
                                 <Binding Path="Toppings" />
@@ -88,9 +96,9 @@
                         </Label.Text>
                     </Label>
                     <Label
-                  LineBreakMode="WordWrap"
-                   TextColor="{StaticResource Black}"
-                  Style="{StaticResource LightText}">
+                        LineBreakMode="WordWrap"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource LightText}">
                         <Label.Text>
                             <MultiBinding StringFormat="Sauce: {0}">
                                 <Binding Path="Sauce"/>
@@ -98,9 +106,9 @@
                         </Label.Text>
                     </Label>
                     <Label
-                  LineBreakMode="WordWrap"
-                   TextColor="{StaticResource Black}"
-                  Style="{StaticResource LightText}">
+                        LineBreakMode="WordWrap"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource LightText}">
                         <Label.Text>
                             <MultiBinding StringFormat="Price: {0} €">
                                 <Binding Path="Price"/>
@@ -110,25 +118,25 @@
 
                     <!--Divider-->
                     <Rectangle
-                  HorizontalOptions="Fill"
-                  HeightRequest="2"
-                  Stroke="Transparent"
-                  Fill="{StaticResource BorderColor}"/>
+                        HorizontalOptions="Fill"
+                        HeightRequest="2"
+                        Stroke="Transparent"
+                        Fill="{StaticResource BorderColor}"/>
 
                     <!--Edit delete pizza buttons-->
                     <Button  
-                   HorizontalOptions="Center"  
-                   Margin="0,0,0,0"  
-                   Style="{StaticResource EditDeleteButton}" 
-                   Text="Edit Pizza"
-                   Clicked="EditButton_Clicked"/>
+                        HorizontalOptions="Center"  
+                        Margin="0,0,0,0"  
+                        Style="{StaticResource EditDeleteButton}" 
+                        Text="Edit Pizza"
+                        Clicked="EditButton_Clicked"/>
                     <Button  
-                   HorizontalOptions="Center"  
-                   Margin="0,0,0,0"  
-                   Style="{StaticResource EditDeleteButton}" 
-                   BackgroundColor="{StaticResource Danger}"
-                   Text="Delete"
-                   Clicked="DeleteButton_Clicked"/>
+                        HorizontalOptions="Center"  
+                        Margin="0,0,0,0"  
+                        Style="{StaticResource EditDeleteButton}" 
+                        BackgroundColor="{StaticResource Danger}"
+                        Text="Delete"
+                        Clicked="DeleteButton_Clicked"/>
 
                 </VerticalStackLayout>
 
@@ -136,6 +144,5 @@
 
         </Grid>
     </VerticalStackLayout>
-
 
 </ContentPage>
