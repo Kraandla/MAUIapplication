@@ -4,6 +4,8 @@ using Microsoft.UI.Windowing;
 using Windows.Graphics;
 #endif
 
+using PizzaPlace.Data;
+
 namespace PizzaPlace
 {
     public partial class App : Application
@@ -13,6 +15,7 @@ namespace PizzaPlace
         public App()
         {
             InitializeComponent();
+            InitializeDatabase();
 
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
@@ -28,11 +31,17 @@ namespace PizzaPlace
             });
         }
 
+        private async void InitializeDatabase()
+        {
+            var db = new DatabaseContext();
+            await db.SeedDataAsync();
+        }
+
         protected override Window CreateWindow(IActivationState? activationState)
         {
             // Mainpage code =
             //return new Window(new AppShell());
-            return new Window(new Views.PizzaDetails());
+            return new Window(new NavigationPage(new Views.StartPage()));
         }
     }
 }
