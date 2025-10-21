@@ -6,6 +6,7 @@
 
     <ContentPage.Content>
 
+        <ScrollView>
         <VerticalStackLayout
             x:Name = "PizzaMenuBackground"
             Padding="30, 50"
@@ -63,7 +64,7 @@
                            
 
                                 <Image 
-                                    Source="margherita.png"
+                                    Source="{Binding Image}"
                                     Grid.RowSpan="4"
                                     Grid.Column="0"
                                     WidthRequest="360"
@@ -107,5 +108,6 @@
             </CollectionView>
  
         </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
