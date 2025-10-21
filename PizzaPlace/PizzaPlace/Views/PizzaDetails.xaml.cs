@@ -29,7 +29,7 @@ public partial class PizzaDetails : ContentPage
 
     async void BackButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new PizzaMenu());
 
     }
 
@@ -85,7 +85,7 @@ public partial class PizzaDetails : ContentPage
         if (success)
         {
             await DisplayAlert("Deleted", "Pizza was deleted.", "OK");
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new PizzaMenu());
         }
         else
         {
