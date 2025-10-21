@@ -1,19 +1,52 @@
+using System.Collections.ObjectModel;
+using System.Numerics;
+using PizzaPlace.Data;
+using PizzaPlace.Models;
 
 namespace PizzaPlace.Views;
 
 public partial class PizzaMenu : ContentPage
 {
-	public PizzaMenu()
-	{
-		InitializeComponent();
-	}
+    private readonly DatabaseContext _db = new DatabaseContext();
+    private readonly ObservableCollection<Pizza> _pizzas = new ObservableCollection<Pizza>();
 
-    async void Create(object sender, EventArgs e)
+    public PizzaMenu()
     {
-        await Navigation.PushAsync(new Views.PizzaCreateUpdate());
+        InitializeComponent();
+        PizzaMenuItems.ItemsSource = _pizzas;
     }
-    async void Details(object sender, EventArgs e)
+
+    protected override async void OnAppearing()
     {
-        await Navigation.PushAsync(new Views.PizzaDetails());
+        base.OnAppearing();
+        await LoadPizzas();
+    }
+
+    private async Task LoadPizzas()
+    {
+        try
+        {
+            var pizzas = await _db.GetAllAsync<Pizza>();
+
+            _pizzas.Clear();
+            foreach (var pizza in pizzas)
+                _pizzas.Add(pizza);
+
+            PizzaMenuItems.IsVisible = _pizzas.Any();
+        }
+
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Failed to load pizzas: {ex.Message}", "OK");
+        }
+    }
+
+    private async void PizzaMenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+
+        var selectedPizza = e.CurrentSelection.FirstOrDefault() as Pizza;
+
+        //wait Navigation.PushAsync(new PizzaDetails(selectedPizza));
+
     }
 }
