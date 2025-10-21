@@ -30,11 +30,6 @@ namespace PizzaPlace
                 #endif
             });
         }
-        private async void InitializeDatabase()
-        {
-            var db = new DatabaseContext();
-            await db.SeedDataAsync();
-        }
 
         private async void InitializeDatabase()
         {
