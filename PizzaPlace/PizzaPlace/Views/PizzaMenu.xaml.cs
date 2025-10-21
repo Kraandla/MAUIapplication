@@ -49,4 +49,9 @@ public partial class PizzaMenu : ContentPage
         await Navigation.PushAsync(new PizzaDetails( selectedPizza));
 
     }
+
+    async void BackButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new StartPage());
+    }
 }
