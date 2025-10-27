@@ -15,7 +15,7 @@ namespace PizzaPlace
         public App()
         {
             InitializeComponent();
-            InitializeDatabase();
+           // InitializeDatabase();
 
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {

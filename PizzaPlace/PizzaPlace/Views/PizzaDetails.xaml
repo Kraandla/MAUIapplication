@@ -5,7 +5,7 @@
              Title="PizzaDetails">
     <VerticalStackLayout
         x:Name = "MainContentLayout"
-        Padding="0"
+        Padding="30, 50"
         BackgroundColor="{StaticResource PrimaryLight}">
         <Grid 
         ColumnDefinitions="*,*"
@@ -34,7 +34,7 @@
                     TextColor="{StaticResource Black}"
                     Style="{StaticResource BoldText}"
                     Text="{Binding Name}"/>
-        
+
                 <ImageButton 
                     Grid.Column="2"
                     WidthRequest="24"

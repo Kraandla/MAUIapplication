@@ -4,6 +4,7 @@ namespace PizzaPlace.Views;
 
 public partial class PizzaDetails : ContentPage
 {
+    private int? _pizzaId;
 
     public PizzaDetails()
     {
@@ -25,6 +26,26 @@ public partial class PizzaDetails : ContentPage
 	{
 		InitializeComponent();
         this.BindingContext = pizza;
+        _pizzaId = pizza?.Id;
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await ReloadPizza();
+    }
+
+    private async Task ReloadPizza()
+    {
+        if (_pizzaId == null) return;
+
+        var db = new PizzaPlace.Data.DatabaseContext();
+        var pizza = await db.GetItemByKeyAsync<Pizza>(_pizzaId.Value);
+        
+        if (pizza != null)
+        {
+            BindingContext = pizza;
+        }
     }
 
     async void BackButton_Clicked(System.Object sender, System.EventArgs e)
@@ -36,7 +57,7 @@ public partial class PizzaDetails : ContentPage
     async void MenuButton_Clicked(object sender, EventArgs e)
     {
         string action = await DisplayActionSheet(
-            "Navigate to:",
+            "Go to:",
             "Cancel",
             null,
             "StartPage",

@@ -9,10 +9,10 @@ public partial class PizzaCreateUpdate : ContentPage
     private Pizza? pizza;
 
     public PizzaCreateUpdate()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = new CreateUpdateViewModel();
-	}
+    }
 
     public PizzaCreateUpdate(Pizza pizza)
     {
