@@ -34,6 +34,7 @@
 
             <!--replace fontsize textcolor with style resource when available-->
             <Label
+                Style="{StaticResource BoldText}"
                 Text="Create/Update"
                 TextColor="{StaticResource Black}"
                 FontSize="34"
@@ -128,8 +129,10 @@
                 Text="{Binding PizzaImageName}"
                 TextColor="{StaticResource Black}"
                 BackgroundColor="{StaticResource PrimaryLight}"
+                FontFamily="Lato-Light"
                 FontSize="24"
                 HeightRequest="46"
+                Padding="5,0,0,0"
                 HorizontalOptions="Fill"/>
 
             <HorizontalStackLayout

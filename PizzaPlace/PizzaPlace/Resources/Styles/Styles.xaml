@@ -24,7 +24,6 @@
         <Setter Property="WidthRequest" Value="56" />
         <Setter Property="Padding" Value="0,0" />
         <Setter Property="TextColor" Value="{StaticResource Black}" />
-        <Setter Property="FontFamily" Value="Monsterrat-Bold" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
         <Setter Property="BorderWidth" Value="0" />
@@ -54,9 +53,10 @@
         <Setter Property="Margin" Value="0"/>
         <Setter Property="VerticalOptions" Value="Start"/>
         <Setter Property="HorizontalOptions" Value="Fill"/>
+        <Setter Property="FontFamily" Value="Lato-Regular" />
     </Style>
 
-    <Style TargetType="Label" x:Key="MainInfoLabel">
+    <Style TargetType="Label" x:Key="MainInfoLabel" BasedOn="{StaticResource BoldText}">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
         <Setter Property="Margin" Value="0,10,0,10"/>
