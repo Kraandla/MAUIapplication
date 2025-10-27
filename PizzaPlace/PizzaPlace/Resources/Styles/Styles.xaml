@@ -56,7 +56,7 @@
         <Setter Property="FontFamily" Value="Lato-Regular" />
     </Style>
 
-    <Style TargetType="Label" x:Key="MainInfoLabel" BasedOn="{StaticResource BoldText}">
+    <Style TargetType="Label" x:Key="MainInfoLabel">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
         <Setter Property="Margin" Value="0,10,0,10"/>
