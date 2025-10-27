@@ -3,71 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
              x:Class="PizzaPlace.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout  
-            Padding="30,0"  
-            Spacing="25">
-            <!--main button-->
-            <Button  
-                HorizontalOptions="Center"  
-                Margin="0,0,0,0"  
-                Style="{StaticResource BottomButton}" 
-                Text="Menu"/>
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+            <GradientStop Color="{StaticResource PrimaryLight}" Offset="0.0"/>
+            <GradientStop Color="{StaticResource PrimaryGradient}" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
-            <!--add/Delete picture button code-->
-            <HorizontalStackLayout
-                Padding="0"
-                HorizontalOptions="Center">
-                <Button
-                    HorizontalOptions="Center"
-                    Margin="0"
-                    Style="{StaticResource AddRemovePictureButton}"
-                    Text="Add">
-                </Button>
-                <Button
-                    HorizontalOptions="Center"
-                    Margin="0"
-                    Style="{StaticResource AddRemovePictureButton}"
-                    Text="Del"></Button>
-            </HorizontalStackLayout>
+    <Grid>
+        <Image x:Name="SlideshowImage"
+                   Aspect="AspectFit"
+                   Opacity="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   WidthRequest="300"
+                   HeightRequest="300"/>
 
-            <!--Edit delete pizza buttons-->
-            <Button  
-                HorizontalOptions="Center"  
-                Margin="0,0,0,0"  
-                Style="{StaticResource EditDeleteButton}" 
-                Text="Edit"/>
-            <Button  
-                HorizontalOptions="Center"  
-                Margin="0,0,0,0"  
-                Style="{StaticResource EditDeleteButton}" 
-                BackgroundColor="{StaticResource Danger}"
-                Text="Delete"/>
+            <Border
+            Padding="18,20"
+            BackgroundColor="{StaticResource Success}"
+            Shadow="#000000 3 3"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="6">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="18" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout
+            Spacing="14">
 
             <HorizontalStackLayout
                 Padding="20, 20">
                 <Label 
                     Text="Test text"
                     Style="{StaticResource PageHeadingH1}"
-                    SemanticProperties.HeadingLevel="Level1"/>
-            </HorizontalStackLayout>
+                    Text="Welcome to the BEST Pizza Place!"/>
 
             <HorizontalStackLayout
                 Padding="20, 20">
                 <Label 
-                    Text="New text"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    LineBreakMode="WordWrap"
+                    Margin="6"
                     Style="{StaticResource PageHeadingH2}"
-                    SemanticProperties.HeadingLevel="Level2"/>
-            </HorizontalStackLayout>
+                    FontSize="18"
+                    
+                    Text="Want to know what pizzas we have in our menu and see what is in them?"/>
 
-            <HorizontalStackLayout
-                Padding="20, 20">
-                <Label
-                    Style="{StaticResource ParagraphText}"
-                    Text="Texting..."/>
-            </HorizontalStackLayout>
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+                <Button 
+                    HorizontalOptions="Center"
+                    LineBreakMode="WordWrap"
+                    Style="{StaticResource BottomButton}"
+                    Text="View Menu"
+                    Clicked="PizzaMenu_Clicked"/>
+            </VerticalStackLayout>
+        </Border>
+     </Grid>
 </ContentPage>
