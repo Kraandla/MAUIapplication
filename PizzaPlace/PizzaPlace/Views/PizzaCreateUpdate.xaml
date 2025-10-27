@@ -34,6 +34,7 @@
 
             <!--replace fontsize textcolor with style resource when available-->
             <Label
+                Style="{StaticResource BoldText}"
                 Text="Create/Update"
                 TextColor="{StaticResource Black}"
                 FontSize="34"
@@ -49,7 +50,7 @@
 
         <!--Input box fields-->
         <Border
-            BackgroundColor="{StaticResource PrimaryGradient}"
+            BackgroundColor="{StaticResource White}"
             Stroke="{StaticResource Primary}"
             StrokeShape="RoundRectangle 20"
             StrokeThickness="3">
@@ -127,9 +128,11 @@
                 Margin="0,0,0,0"
                 Text="{Binding PizzaImageName}"
                 TextColor="{StaticResource Black}"
-                BackgroundColor="White"
+                BackgroundColor="{StaticResource PrimaryLight}"
+                FontFamily="Lato-Light"
                 FontSize="24"
                 HeightRequest="46"
+                Padding="5,0,0,0"
                 HorizontalOptions="Fill"/>
 
             <HorizontalStackLayout
