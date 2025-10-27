@@ -90,7 +90,7 @@
             <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
                 Text="{Binding Pizza.Toppings}"
-                Placeholder="Add toppings to the Pizza"
+                Placeholder="Price the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
                 >
