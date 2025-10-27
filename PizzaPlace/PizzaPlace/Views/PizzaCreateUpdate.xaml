@@ -89,6 +89,7 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
+                Text="{Binding Pizza.Toppings}"
                 Placeholder="Price the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
