@@ -16,6 +16,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
+    <ScrollView>
     <VerticalStackLayout
         x:Name = "MainContentLayout"
         Padding="30, 50">
@@ -165,4 +166,5 @@
                 Text="Save Pizza"
                 Command="{Binding SavePizzaCommand}"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
