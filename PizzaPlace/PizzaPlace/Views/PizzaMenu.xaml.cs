@@ -46,33 +46,12 @@ public partial class PizzaMenu : ContentPage
 
         var selectedPizza = e.CurrentSelection.FirstOrDefault() as Pizza;
 
-        await Navigation.PushAsync(new PizzaDetails(selectedPizza));
+        await Navigation.PushAsync(new PizzaDetails( selectedPizza));
 
     }
 
-    async void MenuButton_Clicked(object sender, EventArgs e)
+    async void BackButton_Clicked(object sender, EventArgs e)
     {
-        string action = await DisplayActionSheet(
-            "Navigate to:",
-            "Cancel",
-            null,
-            "StartPage",
-      
-            "PizzaCreate"
-        );
-
-        switch (action)
-        {
-            case "StartPage":
-                await Navigation.PushAsync(new StartPage());
-                break;
-        
-            case "PizzaCreate":
-                await Navigation.PushAsync(new PizzaCreateUpdate());
-                break;
-            default:
-                // Cancel or closed, do nothing
-                break;
-        }
+        await Navigation.PushAsync(new StartPage());
     }
 }

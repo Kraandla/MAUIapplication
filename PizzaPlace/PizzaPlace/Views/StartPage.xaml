@@ -12,92 +12,42 @@
     </ContentPage.Background>
 
     <Grid>
-        <Image 
-        x:Name="imgHawaiian"
-        Source="hawaiian.png"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        TranslationX="-48"
-        TranslationY="148"
-        WidthRequest="96"
-        HeightRequest="96"/>
+        <Image x:Name="SlideshowImage"
+                   Aspect="AspectFit"
+                   Opacity="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   WidthRequest="300"
+                   HeightRequest="300"/>
 
-        <Image 
-        x:Name="imgMargherita"
-        Source="margerita.png"
-        VerticalOptions="Center"
-        HorizontalOptions="Start"
-        TranslationX="-100"
-        TranslationY="-64"
-        WidthRequest="200"
-        HeightRequest="200"/>
-
-        <Image 
-        x:Name="imgMexican"
-        Source="mexican.png"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        TranslationX="32"
-        TranslationY="76"
-        WidthRequest="300"
-        HeightRequest="300"/>
-
-        <Image 
-        x:Name="imgMushroom"
-        Source="mushroom.png"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        TranslationX="-100"
-        TranslationY="96"
-        WidthRequest="140"
-        HeightRequest="140"/>
-
-        <Image 
-        x:Name="imgPepperoni"
-        Source="pepperoni.png"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        TranslationX="18"
-        TranslationY="72"
-        WidthRequest="66"
-        HeightRequest="66"/>
-
-        <Image 
-        x:Name="imgSeafood"
-        Source="seafood.png"
-        VerticalOptions="Start"
-        HorizontalOptions="Center"
-        TranslationX="84"
-        TranslationY="208"
-        WidthRequest="76"
-        HeightRequest="76"/>
-
-        <Border
-            Padding="16,20"
+            <Border
+            Padding="18,20"
             BackgroundColor="{StaticResource Success}"
             Shadow="#000000 3 3"
             HorizontalOptions="Center"
             VerticalOptions="End"
-            Margin="20">
+            Margin="6">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="18" />
             </Border.StrokeShape>
 
             <VerticalStackLayout
-            Spacing="12">
+            Spacing="14">
 
                 <Label 
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource PageHeadingH1}"
-                    Text="Welcome to the best Pizza Place!"/>
+                    Text="Welcome to the BEST Pizza Place!"/>
 
                 <Label 
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"
                     LineBreakMode="WordWrap"
+                    Margin="6"
                     Style="{StaticResource PageHeadingH2}"
                     FontSize="18"
+                    
                     Text="Want to know what pizzas we have in our menu and see what is in them?"/>
 
                 <Button 
@@ -108,5 +58,5 @@
                     Clicked="PizzaMenu_Clicked"/>
             </VerticalStackLayout>
         </Border>
-    </Grid>
+     </Grid>
 </ContentPage>

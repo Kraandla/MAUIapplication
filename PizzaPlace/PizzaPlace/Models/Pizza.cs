@@ -7,10 +7,10 @@ namespace PizzaPlace.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Size { get; set; }
+        public int? Size { get; set; }
         public string Toppings { get; set; }
         public string Sauce { get; set; }
-        public double Price { get; set; }
+        public double? Price { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
         public Pizza Clone() => MemberwiseClone() as Pizza;
@@ -25,7 +25,7 @@ namespace PizzaPlace.Models
             if(string.IsNullOrWhiteSpace(Sauce))
                 return (false, "Sauce is required.");
             if (Price <= 0)
-                return (false, "Price cannot be negative.");
+                return (false, "Price cannot be less than 1.");
             return (true, null);
         }
     }

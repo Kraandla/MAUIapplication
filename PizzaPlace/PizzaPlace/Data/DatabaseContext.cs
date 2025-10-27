@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using PizzaPlace.Models;
 using SQLite;
 
 namespace PizzaPlace.Data
@@ -74,6 +75,27 @@ namespace PizzaPlace.Data
             var table = await GetTableAsync<TTable>();
             return await table.Where(predicate).ToListAsync();
         }
+        public async Task SeedDataAsync()
+        {
 
+            var existingPizzas = await GetAllAsync<Pizza>();
+            if (existingPizzas.Any())
+                return; // Data already seeded
+
+
+            var pizzas = new List<Pizza>
+               {
+                   new Pizza { Name = "Margherita", Size=18, Price = 8.99, Toppings = "Classic tomato and mozzarella", Sauce="Tomato",  Image = "margherita.png"},
+                   new Pizza { Name = "Pepperoni", Size=18,   Price = 10.99, Toppings = "Pepperoni and cheese", Sauce="ketsup", Image = "pepperoni.png"},
+                   new Pizza { Name = "Veggie Supreme", Size=18,  Price = 11.99, Toppings = "Fresh vegetables", Sauce="majonees",Image = "seafood.png"},
+                   new Pizza { Name = "Hawaiian", Size=18,  Price = 10.49, Toppings = "Ham and pineapple", Sauce="thsillikaste", Image = "hawwaiian.png" }
+               };
+
+            foreach (var pizza in pizzas)
+            {
+                await AddItemAsync(pizza);
+            }
+
+        }
     }
 }

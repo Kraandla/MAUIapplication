@@ -64,7 +64,7 @@ public partial class PizzaDetails : ContentPage
     private async void EditButton_Clicked(object sender, EventArgs e)
     {
         var pizza = BindingContext as PizzaPlace.Models.Pizza;
-        await Navigation.PushModalAsync(new PizzaCreateUpdate(pizza));
+        await Navigation.PushAsync(new PizzaCreateUpdate(pizza));
     }
 
     private async void DeleteButton_Clicked(object sender, EventArgs e)

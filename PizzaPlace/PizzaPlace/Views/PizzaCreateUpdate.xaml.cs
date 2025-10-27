@@ -22,15 +22,7 @@ public partial class PizzaCreateUpdate : ContentPage
 
     async void BackButton_Clicked(object sender, EventArgs e)
     {
-        // Check if this page was presented modally
-        if (Navigation.ModalStack.Contains(this))
-        {
-            await Navigation.PopModalAsync();
-        }
-        else
-        {
-            await Navigation.PopAsync();
-        }
+        await Navigation.PopAsync();
     }
 
 }
