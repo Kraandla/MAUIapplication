@@ -1,6 +1,3 @@
-using Microsoft.Maui.Controls;
-using System.Collections.Generic;
-
 namespace PizzaPlace.Views;
 
 public partial class StartPage : ContentPage
@@ -19,7 +16,7 @@ public partial class StartPage : ContentPage
     public StartPage()
     {
         InitializeComponent();
-        SizeChanged += OnSized; 
+        SizeChanged += OnSized;
     }
 
     void OnSized(object? sender, EventArgs e)
@@ -29,7 +26,7 @@ public partial class StartPage : ContentPage
 
         double imgWidth = Width * 0.7;
         SlideshowImage.WidthRequest = imgWidth;
-        SlideshowImage.HeightRequest = imgWidth; 
+        SlideshowImage.HeightRequest = imgWidth;
     }
 
     protected override async void OnAppearing()
@@ -45,7 +42,7 @@ public partial class StartPage : ContentPage
         {
             SlideshowImage.Source = _images[_currentIndex];
             SlideshowImage.Opacity = 0;
-            SlideshowImage.TranslationY = -SlideshowImage.HeightRequest * 0.1; 
+            SlideshowImage.TranslationY = -SlideshowImage.HeightRequest * 0.1;
 
             await Task.WhenAll(
                 SlideshowImage.FadeTo(1, 800, Easing.CubicIn),
@@ -65,38 +62,6 @@ public partial class StartPage : ContentPage
         base.OnDisappearing();
         _running = false;
         SlideshowImage.CancelAnimations();
-    }
-
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-
-        if (_running)
-            return;
-
-        _running = true;
-
-        while (_running)
-        {
-            SlideshowImage.Source = _images[_currentIndex];
-
-            //fade in
-            await SlideshowImage.FadeTo(1, 800, Easing.CubicIn);
-
-            //stay visible for a moment
-            await Task.Delay(4000);
-
-            //fade out
-            await SlideshowImage.FadeTo(0, 1000, Easing.CubicOut);
-
-            _currentIndex = (_currentIndex + 1) % _images.Count;
-        }
-    }
-
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
-        _running = false;
     }
 
     async void PizzaMenu_Clicked(object sender, EventArgs e)
