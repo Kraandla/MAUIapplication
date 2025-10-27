@@ -1,4 +1,6 @@
 using PizzaPlace.Models;
+using PizzaPlace.ViewModels;
+using Microsoft.Maui.Media;
 
 namespace PizzaPlace.Views;
 
@@ -7,14 +9,28 @@ public partial class PizzaCreateUpdate : ContentPage
     private Pizza? pizza;
 
     public PizzaCreateUpdate()
-	{
-		InitializeComponent();
-	}
-
-    public PizzaCreateUpdate(Pizza? pizza)
     {
-        InitializeComponent(); // Ensure XAML is loaded
-        this.pizza = pizza;
-        BindingContext = pizza;
+        InitializeComponent();
+        BindingContext = new CreateUpdateViewModel();
     }
+
+    public PizzaCreateUpdate(Pizza pizza)
+    {
+        InitializeComponent();
+        BindingContext = new CreateUpdateViewModel(pizza);
+    }
+
+    async void BackButton_Clicked(object sender, EventArgs e)
+    {
+        // Check if this page was presented modally
+        if (Navigation.ModalStack.Contains(this))
+        {
+            await Navigation.PopModalAsync();
+        }
+        else
+        {
+            await Navigation.PopAsync();
+        }
+    }
+
 }

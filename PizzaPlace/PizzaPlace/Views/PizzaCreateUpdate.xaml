@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:PizzaPlace.ViewModels"
              x:Class="PizzaPlace.Views.PizzaCreateUpdate"
              Title="PizzaCreateUpdate">
+
+    <ContentPage.BindingContext>
+        <viewmodels:CreateUpdateViewModel />
+    </ContentPage.BindingContext>
+
     <VerticalStackLayout
         x:Name = "MainContentLayout"
         Padding="30, 50"
@@ -16,7 +22,8 @@
             <ImageButton
                 WidthRequest="40"
                 Source="back_button.png"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start"
+                Clicked="BackButton_Clicked">
             </ImageButton>
 
             <!--replace fontsize textcolor with style resource when available-->
@@ -38,7 +45,8 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Name:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
-                Placeholder="Price the Pizza"
+                Text="{Binding Pizza.Name}"
+                Placeholder="Name the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
                 >
@@ -50,6 +58,7 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Size:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
+                Text="{Binding Pizza.Size}"
                 Placeholder="Price the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
@@ -61,6 +70,7 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
+                Text="{Binding Pizza.Toppings}"
                 Placeholder="Price the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
@@ -72,7 +82,8 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Sauce:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
-                Placeholder="Price the Pizza"
+                Text="{Binding Pizza.Sauce}"
+                Placeholder="Sauce the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
                 >
@@ -82,6 +93,7 @@
             Style="{StaticResource InputBoxGrid}">
             <Label Text="Price:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
+                Text="{Binding Pizza.Price}"
                 Placeholder="Price the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
@@ -92,7 +104,7 @@
         <Grid>
             <Label
                 Margin="0,0,0,0"
-                Text=""
+                Text="{Binding PizzaImageName}"
                 TextColor="{StaticResource Black}"
                 BackgroundColor="White"
                 FontSize="24"
@@ -106,12 +118,14 @@
                     HorizontalOptions="Center"
                     Margin="0"
                     Style="{StaticResource AddRemovePictureButton}"
+                    Command="{Binding PickImageCommand}"
                     Text="Add">
                 </Button>
                 <Button
                     HorizontalOptions="Center"
                     Margin="0"
                     Style="{StaticResource AddRemovePictureButton}"
+                    Command="{Binding DeleteImageCommand}"
                     Text="Del"></Button>
             </HorizontalStackLayout>
         </Grid>
@@ -120,6 +134,7 @@
                 HorizontalOptions="End"  
                 Margin="0,20,0,0"  
                 Style="{StaticResource BottomButton}" 
-                Text="Create Pizza"/>
+                Text="Save Pizza"
+                Command="{Binding SavePizzaCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

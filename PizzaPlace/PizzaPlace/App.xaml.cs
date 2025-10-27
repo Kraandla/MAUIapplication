@@ -15,7 +15,7 @@ namespace PizzaPlace
         public App()
         {
             InitializeComponent();
-            InitializeDatabase();
+           // InitializeDatabase();
 
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
@@ -31,11 +31,11 @@ namespace PizzaPlace
             });
         }
 
-        private async void InitializeDatabase()
-        {
-            var db = new DatabaseContext();
-            await db.SeedDataAsync();
-        }
+        //private async void InitializeDatabase()
+        //{
+        //    var db = new DatabaseContext();
+        //    await db.SeedDataAsync();
+        //}
 
         protected override Window CreateWindow(IActivationState? activationState)
         {

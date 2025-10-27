@@ -36,7 +36,7 @@ public partial class PizzaDetails : ContentPage
     async void MenuButton_Clicked(object sender, EventArgs e)
     {
         string action = await DisplayActionSheet(
-            "Navigate to:",
+            "Go to:",
             "Cancel",
             null,
             "StartPage",
