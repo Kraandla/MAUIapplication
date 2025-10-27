@@ -5,7 +5,14 @@
              Title="PizzaMenu">
 
 
-    <VerticalStackLayout
+    <ScrollView
+        Grid.Row="1"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        HorizontalScrollBarVisibility="Never"
+        VerticalScrollBarVisibility="Never"
+        Margin="24,16,24,0">
+        <VerticalStackLayout
             x:Name = "PizzaMenuBackground"
             Padding="30, 50"
             BackgroundColor="{StaticResource PrimaryLight}">
@@ -44,15 +51,9 @@
                     Clicked="MenuButton_Clicked"/>
         </Grid>
 
-        <ScrollView
-            Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
-            HorizontalScrollBarVisibility="Never"
-            VerticalScrollBarVisibility="Never"
-            Margin="24,16,24,0">
             <VerticalStackLayout>
                 <Button 
+                    Margin="0,24,0,14"
                     HorizontalOptions="Center"
                     LineBreakMode="WordWrap"
                     Style="{StaticResource BottomButton}"
@@ -132,6 +133,6 @@
             </CollectionView.ItemTemplate>
             </CollectionView>
             </VerticalStackLayout>
-        </ScrollView>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
