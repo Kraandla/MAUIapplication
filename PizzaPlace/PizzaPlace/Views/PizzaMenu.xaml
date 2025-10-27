@@ -60,24 +60,22 @@
                             HorizontalOptions="Center">
 
                             <Grid 
-                                ColumnDefinitions="220, *, Auto" 
+                                ColumnDefinitions="200, *, Auto" 
                                 RowDefinitions="Auto, Auto, Auto, Auto" 
-                                ColumnSpacing="20"
-                                Padding="32,24"
-                                MaximumWidthRequest="780">
-                           
+                                ColumnSpacing="0"
+                                Padding="32,24">
 
-                                <Image 
+
+                                    <Image 
                                     Source="{Binding Image}"
                                     Grid.RowSpan="4"
                                     Grid.Column="0"
-                                    WidthRequest="360"
-                                    HeightRequest="360"
-                                    Aspect="AspectFill"
-                                    Margin="0,-140,120,-240"/>
-                                    <!--Margin="0,-140,120,-210"-->
-                                    
-                                <Label 
+                                    WidthRequest="240"
+                                    HeightRequest="240"
+                                    Aspect="AspectFit"
+                                    Margin="0,-180,140,-240"/>
+
+                                    <Label 
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     Text="{Binding Name}"

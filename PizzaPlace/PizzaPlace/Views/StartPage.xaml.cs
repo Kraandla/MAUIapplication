@@ -16,7 +16,7 @@ public partial class StartPage : ContentPage
     public StartPage()
     {
         InitializeComponent();
-        SizeChanged += OnSized; 
+        SizeChanged += OnSized;
     }
 
     void OnSized(object? sender, EventArgs e)
@@ -26,7 +26,7 @@ public partial class StartPage : ContentPage
 
         double imgWidth = Width * 0.7;
         SlideshowImage.WidthRequest = imgWidth;
-        SlideshowImage.HeightRequest = imgWidth; 
+        SlideshowImage.HeightRequest = imgWidth;
     }
 
     protected override async void OnAppearing()
@@ -42,7 +42,7 @@ public partial class StartPage : ContentPage
         {
             SlideshowImage.Source = _images[_currentIndex];
             SlideshowImage.Opacity = 0;
-            SlideshowImage.TranslationY = -SlideshowImage.HeightRequest * 0.1; 
+            SlideshowImage.TranslationY = -SlideshowImage.HeightRequest * 0.1;
 
             await Task.WhenAll(
                 SlideshowImage.FadeTo(1, 800, Easing.CubicIn),
