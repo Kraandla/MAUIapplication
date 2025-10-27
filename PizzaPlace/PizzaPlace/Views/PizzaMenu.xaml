@@ -12,13 +12,13 @@
         Grid.Column="0"
         Grid.ColumnSpan="2"
         HorizontalScrollBarVisibility="Never"
-        VerticalScrollBarVisibility="Never"
-        Margin="24,16,24,0">
+        VerticalScrollBarVisibility="Never">
         <VerticalStackLayout
 >
 
         <!-- Header - Full Width -->
-        <Grid Grid.Row="0" 
+        <Grid 
+            Grid.Row="0" 
                   Grid.ColumnSpan="2" 
                   Padding="20" 
                   BackgroundColor="{StaticResource Primary}"
@@ -38,8 +38,8 @@
                     HorizontalTextAlignment="Center"
                     VerticalOptions="Center"
                     TextColor="{StaticResource Black}"
-                    Style="{StaticResource BoldText}"
-                    Text="{Binding Name}"/>
+                    Style="{StaticResource PageHeadingH1}"
+                    Text="Pizza Menu"/>
 
             <ImageButton 
                     Grid.Column="2"
@@ -51,7 +51,8 @@
                     Clicked="MenuButton_Clicked"/>
         </Grid>
 
-            <VerticalStackLayout>
+            <VerticalStackLayout
+                Padding="20">
                 <Button 
                     Margin="0,24,0,14"
                     HorizontalOptions="Center"
