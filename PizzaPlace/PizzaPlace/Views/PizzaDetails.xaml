@@ -3,57 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaDetails"
              Title="PizzaDetails">
-    <VerticalStackLayout
-        x:Name = "MainContentLayout"
-        Padding="30, 50"
-        BackgroundColor="{StaticResource PrimaryLight}">
-        <Grid 
-        ColumnDefinitions="*,*"
-        RowDefinitions="Auto,*">
+    <ScrollView
+        HorizontalScrollBarVisibility="Never"
+        VerticalScrollBarVisibility="Default">
+        <VerticalStackLayout
+            x:Name = "MainContentLayout"
+            Padding="30, 50"
+            BackgroundColor="{StaticResource PrimaryLight}">
+            <Grid 
+            ColumnDefinitions="*,*"
+            RowDefinitions="Auto,Auto">
 
-            <!-- Header - Full Width -->
-            <Grid Grid.Row="0" 
-                  Grid.ColumnSpan="2" 
-                  Padding="20" 
-                  BackgroundColor="{StaticResource Primary}"
-                  ColumnDefinitions="Auto,*,Auto">
+                <!-- Header - Full Width -->
+                <Grid Grid.Row="0" 
+                      Grid.ColumnSpan="2" 
+                      Padding="20" 
+                      BackgroundColor="{StaticResource Primary}"
+                      ColumnDefinitions="Auto,*,Auto">
 
-                <ImageButton 
-                    Grid.Column="0"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="back_button.png"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    Clicked="BackButton_Clicked"/>
+                    <ImageButton 
+                        Grid.Column="0"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Source="back_button.png"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Clicked="BackButton_Clicked"/>
 
-                <Label
-                    Grid.Column="1"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Center"
-                    TextColor="{StaticResource Black}"
-                    Style="{StaticResource BoldText}"
-                    Text="{Binding Name}"/>
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource BoldText}"
+                        Text="{Binding Name}"/>
 
-                <ImageButton 
-                    Grid.Column="2"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="imgmenu.png"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    Clicked="MenuButton_Clicked"/>
-            </Grid>
+                    <ImageButton 
+                        Grid.Column="2"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Source="imgmenu.png"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Clicked="MenuButton_Clicked"/>
+                </Grid>
 
-            <!--main Content scrollview-->
-            <ScrollView
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HorizontalScrollBarVisibility="Never"
-                VerticalScrollBarVisibility="Never"
-                Margin="24,16,24,0">
+                <!--main Content-->
                 <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="24,16,24,0"
                     Spacing="18">
 
                     <Image
@@ -68,7 +68,8 @@
                         HorizontalTextAlignment="Center"
                         LineBreakMode="WordWrap"
                         TextColor="{StaticResource Black}"
-                        Style="{StaticResource RegularText}"
+                        Style="{StaticResource MainInfoLabel}"
+                        VerticalTextAlignment="Center"
                         >
                         <Label.Text>
                             <MultiBinding StringFormat="Size: {0} cm">
@@ -87,7 +88,7 @@
                     <Label
                         LineBreakMode="WordWrap"
                         TextColor="{StaticResource Black}"
-                        Style="{StaticResource LightText}"
+                        Style="{StaticResource MainInfoLabel}"
                         >
                         <Label.Text>
                             <MultiBinding StringFormat="Toppings:  {0}">
@@ -98,7 +99,7 @@
                     <Label
                         LineBreakMode="WordWrap"
                         TextColor="{StaticResource Black}"
-                        Style="{StaticResource LightText}">
+                        Style="{StaticResource MainInfoLabel}">
                         <Label.Text>
                             <MultiBinding StringFormat="Sauce: {0}">
                                 <Binding Path="Sauce"/>
@@ -108,7 +109,7 @@
                     <Label
                         LineBreakMode="WordWrap"
                         TextColor="{StaticResource Black}"
-                        Style="{StaticResource LightText}">
+                        Style="{StaticResource MainInfoLabel}">
                         <Label.Text>
                             <MultiBinding StringFormat="Price: {0} €">
                                 <Binding Path="Price"/>
@@ -127,22 +128,24 @@
                     <Button  
                         HorizontalOptions="Center"  
                         Margin="0,0,0,0"  
-                        Style="{StaticResource EditDeleteButton}" 
+                        Style="{StaticResource BottomButton}" 
+                        BackgroundColor="Green"
+                        WidthRequest="300"
                         Text="Edit Pizza"
                         Clicked="EditButton_Clicked"/>
                     <Button  
                         HorizontalOptions="Center"  
                         Margin="0,0,0,0"  
-                        Style="{StaticResource EditDeleteButton}" 
+                        Style="{StaticResource BottomButton}" 
                         BackgroundColor="{StaticResource Danger}"
+                        WidthRequest="300"
                         Text="Delete"
                         Clicked="DeleteButton_Clicked"/>
 
                 </VerticalStackLayout>
 
-            </ScrollView>
-
-        </Grid>
-    </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
