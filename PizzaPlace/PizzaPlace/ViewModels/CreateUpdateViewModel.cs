@@ -15,16 +15,21 @@ namespace PizzaPlace.ViewModels
         [ObservableProperty]
         private string image;
 
+        [ObservableProperty]
+        private string header;
+
         public CreateUpdateViewModel()
         {
             _dbContext = new DatabaseContext();
             Pizza = new Pizza { CreatedAt = DateTime.Now }; // default for create
+            header = "Create Pizza";
         }
 
         public CreateUpdateViewModel(Pizza pizza)
         {
             _dbContext = new DatabaseContext();
             Pizza = pizza ?? new Pizza { CreatedAt = DateTime.Now };
+            header = "Update Pizza";
         }
 
         [RelayCommand]

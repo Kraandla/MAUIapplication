@@ -21,28 +21,43 @@
         x:Name = "MainContentLayout"
         Padding="30, 50">
 
-        <HorizontalStackLayout
-            Spacing="64"
-            Grid.Row="0"
-            Grid.Column="0">
 
-            <ImageButton
-                WidthRequest="40"
-                Source="back_button.png"
-                HorizontalOptions="Start"
-                Clicked="BackButton_Clicked">
-            </ImageButton>
+            <!-- Header - Full Width -->
+            <Grid Grid.Row="0" 
+                  Grid.ColumnSpan="2" 
+                  Padding="20" 
+                  BackgroundColor="{StaticResource Primary}"
+                  ColumnDefinitions="Auto,*,Auto">
 
-            <!--replace fontsize textcolor with style resource when available-->
-            <Label
-                Style="{StaticResource BoldText}"
-                Text="Create/Update"
-                TextColor="{StaticResource Black}"
-                FontSize="34"
-                VerticalOptions="Center"/>
-        </HorizontalStackLayout>
+                <ImageButton 
+                    Grid.Column="0"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    Source="back_button.png"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Clicked="BackButton_Clicked"/>
 
-        <HorizontalStackLayout
+                <Label
+                    x:Name="HeaderLabel"
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Center"
+                    TextColor="{StaticResource Black}"
+                    Style="{StaticResource BoldText}"
+                    Text="{Binding Header}"/>
+
+                <ImageButton 
+                    Grid.Column="2"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    Source="imgmenu.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    Clicked="MenuButton_Clicked"/>
+            </Grid>
+
+            <HorizontalStackLayout
             Margin="0,20"
             Grid.Row="1"
             Grid.Column="0">
