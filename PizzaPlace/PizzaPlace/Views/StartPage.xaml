@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PizzaPlace.Views.StartPage"
-             Title="StartPage">
+             x:Class="PizzaPlace.Views.StartPage">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
@@ -12,50 +11,80 @@
     </ContentPage.Background>
 
     <ScrollView>
-        <Grid RowDefinitions="Auto,*" Padding="12">
+        <Grid RowDefinitions="Auto,*">
 
-            <Grid Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Center">
-                <Image x:Name="SlideshowImage"
-                       Aspect="AspectFit"
-                       Opacity="0"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Start" />
+            <Grid Padding="20"
+                  BackgroundColor="{StaticResource Primary}"
+                  ColumnDefinitions="Auto,*,Auto"
+                  Grid.Row="0">
+
+                <Label Grid.Column="1"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource Black}"
+                       Style="{StaticResource PageHeadingH1}"
+                       Text="Welcome!" />
+
+                <ImageButton Grid.Column="2"
+                             WidthRequest="24"
+                             HeightRequest="24"
+                             Source="imgmenu.png"
+                             HorizontalOptions="End"
+                             VerticalOptions="Center"
+                             Clicked="MenuButton_Clicked" />
             </Grid>
 
-            <Border Grid.Row="1"
-                    Padding="18,20"
-                    BackgroundColor="{StaticResource Success}"
-                    Shadow="#000000 3 3"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="End">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="18" />
-                </Border.StrokeShape>
+            <Grid RowDefinitions="Auto,*"
+                  Padding="12"
+                  Grid.Row="1">
 
-                <VerticalStackLayout Spacing="14">
-                    <Label 
-                        HorizontalOptions="Center"
-                        HorizontalTextAlignment="Center"
-                        Style="{StaticResource PageHeadingH1}"
-                        Text="Welcome to the BEST Pizza Place!" />
+                <Grid Grid.Row="0"
+                      VerticalOptions="Start"
+                      HorizontalOptions="Center">
+                    <Image x:Name="SlideshowImage"
+                           Aspect="AspectFit"
+                           Opacity="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start" />
+                </Grid>
 
-                    <Label 
-                        HorizontalOptions="Center"
-                        HorizontalTextAlignment="Center"
-                        LineBreakMode="WordWrap"
-                        Margin="6"
-                        Style="{StaticResource PageHeadingH2}"
-                        FontSize="18"
-                        Text="Want to know what pizzas we have in our menu and see what is in them?" />
+                <Border Grid.Row="1"
+                        Padding="18,20"
+                        BackgroundColor="{StaticResource Success}"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="End">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="18" />
+                    </Border.StrokeShape>
+                    
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="3,3" Radius="10" Opacity="0.4" />
+                    </Border.Shadow>
 
-                    <Button 
-                        HorizontalOptions="Center"
-                        LineBreakMode="WordWrap"
-                        Style="{StaticResource BottomButton}"
-                        Text="View Menu"
-                        Clicked="PizzaMenu_Clicked" />
-                </VerticalStackLayout>
-            </Border>
+                    <VerticalStackLayout Spacing="14">
+                        <Label 
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Style="{StaticResource PageHeadingH1}"
+                            Text="Welcome to the BEST Pizza Place!" />
+
+                        <Label 
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            Margin="6"
+                            Style="{StaticResource PageHeadingH2}"
+                            FontSize="18"
+                            Text="Want to know what pizzas we have in our menu and see what is in them?" />
+
+                        <Button 
+                            HorizontalOptions="Center"
+                            Style="{StaticResource BottomButton}"
+                            Text="View Menu"
+                            Clicked="PizzaMenu_Clicked" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
         </Grid>
     </ScrollView>
 </ContentPage>
