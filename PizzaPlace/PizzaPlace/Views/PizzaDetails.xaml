@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaDetails"
-             Title="PizzaDetails">
+             Title="Pizza Info">
     <ScrollView
         HorizontalScrollBarVisibility="Never"
         VerticalScrollBarVisibility="Default">
@@ -11,42 +11,50 @@
             Padding="30, 50"
             BackgroundColor="{StaticResource PrimaryLight}">
             <Grid 
-            ColumnDefinitions="*,*"
-            RowDefinitions="Auto,Auto">
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto,Auto">
 
-                <!-- Header - Full Width -->
-                <Grid Grid.Row="0" 
-                      Grid.ColumnSpan="2" 
-                      Padding="20" 
-                      BackgroundColor="{StaticResource Primary}"
-                      ColumnDefinitions="Auto,*,Auto">
+            
+                <Border 
+                    Grid.Row="0" 
+                    Grid.ColumnSpan="2"
+                     Margin="24,0,24,0"
+                    Stroke="{StaticResource Primary}"
+                    BackgroundColor="{StaticResource Primary}"
+                    StrokeThickness="5"
+                    StrokeShape="RoundRectangle 16">
+                    
+                    <Grid  
+                        Padding="20" 
+                        ColumnDefinitions="Auto,*,Auto">
 
-                    <ImageButton 
-                        Grid.Column="0"
-                        WidthRequest="24"
-                        HeightRequest="24"
-                        Source="back_button.png"
-                        HorizontalOptions="Start"
-                        VerticalOptions="Center"
-                        Clicked="BackButton_Clicked"/>
+                        <ImageButton 
+                            Grid.Column="0"
+                            WidthRequest="24"
+                            HeightRequest="24"
+                            Source="back_button.png"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            Clicked="BackButton_Clicked"/>
 
-                    <Label
-                        Grid.Column="1"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Center"
-                        TextColor="{StaticResource Black}"
-                        Style="{StaticResource PageHeadingH1}"
-                        Text="{Binding Name}"/>
+                        <Label
+                            Grid.Column="1"
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            TextColor="{StaticResource Black}"
+                            Style="{StaticResource PageHeadingH1}"
+                            Text="{Binding Name}"/>
 
-                    <ImageButton 
-                        Grid.Column="2"
-                        WidthRequest="24"
-                        HeightRequest="24"
-                        Source="imgmenu.png"
-                        HorizontalOptions="End"
-                        VerticalOptions="Center"
-                        Clicked="MenuButton_Clicked"/>
-                </Grid>
+                        <ImageButton 
+                            Grid.Column="2"
+                            WidthRequest="34"
+                            HeightRequest="34"
+                            Source="menu.png"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Clicked="MenuButton_Clicked"/>
+                    </Grid>
+                </Border>
 
                 <!--main Content-->
                 <VerticalStackLayout
@@ -54,7 +62,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Margin="24,16,24,0"
-                    Spacing="18">
+                    Spacing="5">
 
                       <Border
                         Stroke="{StaticResource Primary}"
@@ -133,7 +141,7 @@
                         HorizontalOptions="Center"  
                         Margin="0,0,0,0"  
                         Style="{StaticResource BottomButton}" 
-                        BackgroundColor="Green"
+                        BackgroundColor="{StaticResource Primary}"
                         WidthRequest="300"
                         Text="Edit Pizza"
                         Clicked="EditButton_Clicked"/>
