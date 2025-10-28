@@ -35,12 +35,13 @@
             </Grid>
 
             <Grid RowDefinitions="Auto,*"
-                  Padding="12"
+                  Padding="30"
                   Grid.Row="1">
 
                 <Grid Grid.Row="0"
                       VerticalOptions="Start"
                       HorizontalOptions="Center">
+                    
                     <Image x:Name="SlideshowImage"
                            Aspect="AspectFit"
                            Opacity="0"
@@ -49,37 +50,36 @@
                 </Grid>
 
                 <Border Grid.Row="1"
-                        Padding="18,20"
+                        Padding="40,24"
                         BackgroundColor="{StaticResource Success}"
+                        Stroke="Transparent"
                         HorizontalOptions="Fill"
                         VerticalOptions="End">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="18" />
                     </Border.StrokeShape>
-                    
-                    <Border.Shadow>
-                        <Shadow Brush="Black" Offset="3,3" Radius="10" Opacity="0.4" />
-                    </Border.Shadow>
 
-                    <VerticalStackLayout Spacing="14">
+                    <VerticalStackLayout Spacing="28">
                         <Label 
                             HorizontalOptions="Center"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource PageHeadingH1}"
+                            FontSize="30"
                             Text="Welcome to the BEST Pizza Place!" />
 
                         <Label 
                             HorizontalOptions="Center"
                             HorizontalTextAlignment="Center"
                             LineBreakMode="WordWrap"
-                            Margin="6"
+                            Margin="8"
                             Style="{StaticResource PageHeadingH2}"
-                            FontSize="18"
+                            FontSize="24"
                             Text="Want to know what pizzas we have in our menu and see what is in them?" />
 
                         <Button 
                             HorizontalOptions="Center"
                             Style="{StaticResource BottomButton}"
+                            FontSize="24"
                             Text="View Menu"
                             Clicked="PizzaMenu_Clicked" />
                     </VerticalStackLayout>
