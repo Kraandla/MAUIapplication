@@ -4,6 +4,7 @@
              x:Class="PizzaPlace.Views.PizzaMenu"
              x:Name = "PizzaMenuBackground"
              BackgroundColor="{StaticResource PrimaryLight}">
+    
 
 
     <ScrollView
@@ -17,13 +18,13 @@
             <!-- Header - Full Width -->
 
             <Border 
-      Grid.Row="0" 
-      Grid.ColumnSpan="2"
-       Margin="24,0,24,0"
-      Stroke="{StaticResource Primary}"
-      BackgroundColor="{StaticResource Primary}"
-      StrokeThickness="5"
-      StrokeShape="RoundRectangle 16">
+                Grid.Row="0" 
+                Grid.ColumnSpan="2"
+                Margin="24,0,24,0"
+                Stroke="{StaticResource Primary}"
+                BackgroundColor="{StaticResource Primary}"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 16">
 
                 <Grid  
           Padding="20" 
