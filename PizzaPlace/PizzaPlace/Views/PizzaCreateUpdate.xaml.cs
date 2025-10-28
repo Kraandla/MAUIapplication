@@ -25,4 +25,31 @@ public partial class PizzaCreateUpdate : ContentPage
         await Navigation.PopAsync();
     }
 
+    async void MenuButton_Clicked(object sender, EventArgs e)
+    {
+        string action = await DisplayActionSheet(
+            "Navigate to:",
+            "Cancel",
+            null,
+            "StartPage",
+            "PizzaMenu"
+        );
+
+        switch (action)
+        {
+            case "StartPage":
+                await Navigation.PushAsync(new StartPage());
+                break;
+            case "PizzaMenu":
+                await Navigation.PushAsync(new PizzaMenu());
+                break;
+            case "PizzaCreate":
+                await Navigation.PushAsync(new PizzaCreateUpdate());
+                break;
+            default:
+                // Cancel or closed, do nothing
+                break;
+        }
+    }
+
 }
