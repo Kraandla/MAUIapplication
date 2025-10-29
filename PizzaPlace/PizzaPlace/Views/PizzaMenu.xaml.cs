@@ -47,7 +47,7 @@ public partial class PizzaMenu : ContentPage
 
         var selectedPizza = e.CurrentSelection.FirstOrDefault() as Pizza;
 
-        await Navigation.PushAsync(new PizzaDetails( selectedPizza));
+        await Navigation.PushAsync(new PizzaDetails(selectedPizza));
 
     }
 

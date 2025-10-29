@@ -24,7 +24,7 @@ public partial class StartPage : ContentPage
         if (Width <= 0 || Height <= 0)
             return;
 
-        double imgWidth = Width * 0.7;
+        double imgWidth = Width * 0.8;
         SlideshowImage.WidthRequest = imgWidth;
         SlideshowImage.HeightRequest = imgWidth;
     }
@@ -67,5 +67,38 @@ public partial class StartPage : ContentPage
     async void PizzaMenu_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new Views.PizzaMenu());
+    }
+
+    async void CreatePizza_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PizzaCreateUpdate());
+    }
+
+    async void MenuButton_Clicked(object sender, EventArgs e)
+    {
+        string action = await DisplayActionSheet(
+            "Navigate to:",
+            "Cancel",
+            null,
+            "StartPage",
+            "PizzaMenu",
+            "PizzaCreate"
+        );
+
+        switch (action)
+        {
+            case "StartPage":
+                await Navigation.PushAsync(new StartPage());
+                break;
+            case "PizzaMenu":
+                await Navigation.PushAsync(new PizzaMenu());
+                break;
+            case "PizzaCreate":
+                await Navigation.PushAsync(new PizzaCreateUpdate());
+                break;
+            default:
+                // Cancel or closed, do nothing
+                break;
+        }
     }
 }
