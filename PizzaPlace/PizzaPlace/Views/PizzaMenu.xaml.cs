@@ -68,7 +68,6 @@ public partial class PizzaMenu : ContentPage
             "Cancel",
             null,
             "StartPage",
-            "PizzaMenu",
             "PizzaCreate"
         );
 

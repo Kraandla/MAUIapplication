@@ -80,7 +80,7 @@ public partial class StartPage : ContentPage
             "Navigate to:",
             "Cancel",
             null,
-            "StartPage",
+         
             "PizzaMenu",
             "PizzaCreate"
         );

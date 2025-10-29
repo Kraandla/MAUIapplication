@@ -12,27 +12,36 @@
 
     <ScrollView>
         <Grid RowDefinitions="Auto,*">
+            <Border 
+              Grid.Row="0" 
+              Grid.ColumnSpan="2"
+              Margin="24,10,24,0"
+              Stroke="{StaticResource Primary}"
+              BackgroundColor="{StaticResource Primary}"
+              StrokeThickness="5"
+              StrokeShape="RoundRectangle 16">
 
-            <Grid Padding="20"
+                <Grid Padding="20"
                   BackgroundColor="{StaticResource Primary}"
                   ColumnDefinitions="Auto,*,Auto"
                   Grid.Row="0">
 
-                <Label Grid.Column="1"
+                    <Label Grid.Column="1"
                        HorizontalTextAlignment="Center"
                        VerticalOptions="Center"
                        TextColor="{StaticResource Black}"
                        Style="{StaticResource PageHeadingH1}"
                        Text="Welcome!" />
 
-                <ImageButton Grid.Column="2"
-                             WidthRequest="24"
-                             HeightRequest="24"
-                             Source="imgmenu.png"
-                             HorizontalOptions="End"
-                             VerticalOptions="Center"
-                             Clicked="MenuButton_Clicked" />
-            </Grid>
+                    <ImageButton Grid.Column="2"
+                        WidthRequest="34"
+                        HeightRequest="34"
+                        Source="menu.png"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Clicked="MenuButton_Clicked" />
+                </Grid>
+            </Border>
 
             <Grid RowDefinitions="Auto,*"
                   Padding="30"
@@ -41,7 +50,7 @@
                 <Grid Grid.Row="0"
                       VerticalOptions="Start"
                       HorizontalOptions="Center">
-                    
+
                     <Image x:Name="SlideshowImage"
                            Aspect="AspectFit"
                            Opacity="0"

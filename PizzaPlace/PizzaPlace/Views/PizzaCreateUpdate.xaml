@@ -20,48 +20,52 @@
     <VerticalStackLayout
         x:Name = "MainContentLayout"
         Padding="30, 50">
+            <Border 
+                Grid.Row="0" 
+                Grid.ColumnSpan="2"
+                Margin="0, 4,0 ,0"
+                Stroke="{StaticResource Primary}"
+                BackgroundColor="{StaticResource Primary}"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 16">
+                <Grid  
+                    Padding="20" 
+                    ColumnDefinitions="Auto,*,Auto">
 
+                    <ImageButton
+                      Grid.Column="0"
+                      WidthRequest="40"
+                      HeightRequest="40"
+                      Source="back_button.png"
+                      HorizontalOptions="Start"
+                      VerticalOptions="Center"
+                      Clicked="BackButton_Clicked">
+                    </ImageButton>
 
-            <!-- Header - Full Width -->
-            <Grid Grid.Row="0" 
-                  Grid.ColumnSpan="2" 
-                  Padding="20" 
-                  BackgroundColor="{StaticResource Primary}"
-                  ColumnDefinitions="Auto,*,Auto">
+                    <Label
+                      Grid.Column="1"
+                      Style="{StaticResource PageHeadingH1}"
+                      Text="Create/Update"
+                      TextColor="{StaticResource Black}"
+                      HorizontalTextAlignment="Center"
+                      VerticalOptions="Center"/>
 
-                <ImageButton 
-                    Grid.Column="0"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="back_button.png"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    Clicked="BackButton_Clicked"/>
-
-                <Label
-                    x:Name="HeaderLabel"
-                    Grid.Column="1"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Center"
-                    TextColor="{StaticResource Black}"
-                    Style="{StaticResource BoldText}"
-                    Text="{Binding Header}"/>
-
-                <ImageButton 
-                    Grid.Column="2"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="imgmenu.png"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    Clicked="MenuButton_Clicked"/>
-            </Grid>
+                    <ImageButton 
+                      Grid.Column="2"
+                      WidthRequest="34"
+                      HeightRequest="34"
+                      Source="menu.png"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center"
+                      Clicked="MenuButton_Clicked"/>
+                </Grid>
+            </Border>
 
             <HorizontalStackLayout
-            Margin="0,20"
-            Grid.Row="1"
-            Grid.Column="0">
-        </HorizontalStackLayout>
+                Margin="0,20"
+                Grid.Row="1"
+                Grid.Column="0">
+            </HorizontalStackLayout>
 
 
         <!--Input box fields-->
@@ -169,8 +173,22 @@
                     Text="Del"></Button>
             </HorizontalStackLayout>
         </Grid>
-            
-        </VerticalStackLayout>
+                    <!--Image Preview-->
+                    <Border
+                        Margin="0,10,0,0"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="2"
+                        BackgroundColor="{StaticResource White}"
+                        StrokeShape="RoundRectangle 10">
+                        <Image
+            Source="{Binding Pizza.Image}"
+            Aspect="AspectFit"
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+                    </Border>
+
+                </VerticalStackLayout>
         </Border>
 
         <!--Save pizza button-->
