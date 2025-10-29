@@ -16,6 +16,7 @@ public partial class PizzaMenu : ContentPage
         PizzaMenuItems.ItemsSource = _pizzas;
     }
 
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();
@@ -32,7 +33,7 @@ public partial class PizzaMenu : ContentPage
             foreach (var pizza in pizzas)
                 _pizzas.Add(pizza);
 
-            PizzaMenuItems.IsVisible = _pizzas.Any();
+            AddPizzaTopButton.IsVisible = _pizzas.Any();
         }
 
         catch (Exception ex)

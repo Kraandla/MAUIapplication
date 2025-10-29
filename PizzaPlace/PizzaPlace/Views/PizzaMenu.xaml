@@ -15,43 +15,44 @@
         <VerticalStackLayout>
 
         <!-- Header - Full Width -->
-        <Grid 
-            Grid.Row="0" 
-                  Grid.ColumnSpan="2" 
-                  Padding="20" 
-                  BackgroundColor="{StaticResource Primary}"
-                  ColumnDefinitions="Auto,*,Auto">
+            <Grid 
+                Grid.Row="0" 
+                      Grid.ColumnSpan="2" 
+                      Padding="20" 
+                      BackgroundColor="{StaticResource Primary}"
+                      ColumnDefinitions="Auto,*,Auto">
 
-            <ImageButton 
-                    Grid.Column="0"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="back_button.png"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    Clicked="BackButton_Clicked"/>
+                <ImageButton 
+                        Grid.Column="0"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Source="back_button.png"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Clicked="BackButton_Clicked"/>
 
-            <Label
-                    Grid.Column="1"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Center"
-                    TextColor="{StaticResource Black}"
-                    Style="{StaticResource PageHeadingH1}"
-                    Text="Pizza Menu"/>
+                <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource PageHeadingH1}"
+                        Text="Pizza Menu"/>
 
-            <ImageButton 
-                    Grid.Column="2"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="imgmenu.png"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    Clicked="MenuButton_Clicked"/>
-        </Grid>
+                <ImageButton 
+                        Grid.Column="2"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Source="imgmenu.png"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Clicked="MenuButton_Clicked"/>
+            </Grid>
 
             <VerticalStackLayout
                 Padding="20">
                 <Button 
+                    x:Name="AddPizzaTopButton"
                     Margin="0,24,0,14"
                     HorizontalOptions="Center"
                     LineBreakMode="WordWrap"
@@ -60,78 +61,122 @@
                     Clicked="CreatePizza_Clicked"/>
                 
                 <CollectionView
-                x:Name="PizzaMenuItems"
-                IsVisible="False"
-                SelectionMode="Single"
-                SelectionChanged="PizzaMenuItems_SelectionChanged">
+                    x:Name="PizzaMenuItems"
+                    IsVisible="True"
+                    SelectionMode="Single"
+                    SelectionChanged="PizzaMenuItems_SelectionChanged">
 
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
-                                       ItemSpacing="8"
-                                       />
-            </CollectionView.ItemsLayout>
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout 
+                            Orientation="Vertical"
+                            ItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
 
-            <CollectionView.ItemTemplate>
+                    <CollectionView.ItemTemplate>
 
-                <DataTemplate>
-                    <Border 
-                            Stroke="{StaticResource Primary}"
-                            BackgroundColor="{StaticResource White}"
-                            StrokeThickness="6"
-                            StrokeShape="RoundRectangle 16,16,16,16"
-                            Padding="0, 0, 0, 0"
-                            HorizontalOptions="Center">
+                        <DataTemplate>
+                            <Border 
+                                Stroke="{StaticResource Primary}"
+                                BackgroundColor="{StaticResource White}"
+                                StrokeThickness="6"
+                                StrokeShape="RoundRectangle 16,16,16,16"
+                                Padding="0, 0, 0, 0"
+                                HorizontalOptions="Center">
 
-                        <Grid 
-                                ColumnDefinitions="200, *, Auto" 
-                                RowDefinitions="Auto, Auto, Auto, Auto" 
-                                ColumnSpacing="0"
-                                Padding="32,24">
+                                <Grid 
+                                    ColumnDefinitions="200, *, Auto" 
+                                    RowDefinitions="Auto, Auto, Auto, Auto" 
+                                    ColumnSpacing="0"
+                                    Padding="32,24">
 
 
-                            <Image 
-                                    Source="{Binding Image}"
-                                    Grid.RowSpan="4"
-                                    Grid.Column="0"
-                                    WidthRequest="240"
-                                    HeightRequest="240"
-                                    Aspect="AspectFit"
-                                    Margin="0,-180,140,-240"/>
+                                    <Image 
+                                        Source="{Binding Image}"
+                                        Grid.RowSpan="4"
+                                        Grid.Column="0"
+                                        WidthRequest="240"
+                                        HeightRequest="240"
+                                        Aspect="AspectFit"
+                                        Margin="0,-180,140,-240"/>
 
-                            <Label 
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    Text="{Binding Name}"
-                                    Style="{StaticResource PageHeadingH1}"/>
-
-                            <Label Grid.Row="0"
-                                        Grid.Column="2"
-                                        Text="{Binding Price, StringFormat='€{0:F2}'}"
-                                        Style="{StaticResource PageHeadingH1}" />
-
-                            <Label Grid.Row="1"
+                                    <Label 
+                                        Grid.Row="0"
                                         Grid.Column="1"
-                                        Text="{Binding Size, StringFormat='∅ {0} cm'}"
-                                        Style="{StaticResource ParagraphText}" />
+                                        Text="{Binding Name}"
+                                        Style="{StaticResource PageHeadingH1}"/>
+
+                                    <Label Grid.Row="0"
+                                            Grid.Column="2"
+                                            Text="{Binding Price, StringFormat='€{0:F2}'}"
+                                            Style="{StaticResource PageHeadingH1}" />
+
+                                    <Label Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding Size, StringFormat='∅ {0} cm'}"
+                                            Style="{StaticResource ParagraphText}" />
 
 
-                            <!--<Label Grid.Row="2"
-                                        Grid.Column="1"
-                                        Text="{Binding Toppings, StringFormat='Toppings: {0}'}"
-                                        Style="{StaticResource ParagraphText}" />
+                                    <!--<Label Grid.Row="2"
+                                            Grid.Column="1"
+                                            Text="{Binding Toppings, StringFormat='Toppings: {0}'}"
+                                            Style="{StaticResource ParagraphText}" />
 
-                                <Label Grid.Row="3"
-                                        Grid.Column="1"
-                                        Text="{Binding Sauce, StringFormat='Sauce: {0}'}"
-                                        Style="{StaticResource ParagraphText}" />-->
+                                    <Label Grid.Row="3"
+                                            Grid.Column="1"
+                                            Text="{Binding Sauce, StringFormat='Sauce: {0}'}"
+                                            Style="{StaticResource ParagraphText}" />-->
 
-                        </Grid>
-                    </Border>
-                </DataTemplate>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
 
-            </CollectionView.ItemTemplate>
-            </CollectionView>
+                    </CollectionView.ItemTemplate>
+                    
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Border
+                                    Padding="32,20"
+                                    BackgroundColor="{StaticResource Success}"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="End"
+                                    Margin="0,24,0,14">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="18" />
+                                    </Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="14">
+
+                                        <Label
+                                            Grid.Row="0"
+                                            Text="Mamma mia!"
+                                            TextColor="Black"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource PageHeadingH1}"/>
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Text="No pizzas on the menu yet. Let’s fix that by adding one!"
+                                            TextColor="Black"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{StaticResource ParagraphText}"/>
+
+                                        <Button 
+                                            Grid.Row="2"
+                                            Text="Add Pizza"
+                                            Style="{StaticResource BottomButton}"
+                                            Clicked="CreatePizza_Clicked"
+                                            HorizontalOptions="Center"/>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                            </StackLayout>
+                        </ContentView>
+                    
+                    </CollectionView.EmptyView>
+                </CollectionView>
             </VerticalStackLayout>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
