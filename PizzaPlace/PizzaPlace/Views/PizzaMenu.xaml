@@ -2,190 +2,160 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PizzaPlace.Views.PizzaMenu"
-             x:Name = "PizzaMenuBackground"
+             x:Name="PizzaMenuBackground"
              BackgroundColor="{StaticResource PrimaryLight}">
-    
-
 
     <ScrollView
-        Grid.Row="1"
-        Grid.Column="0"
-        Grid.ColumnSpan="2"
         HorizontalScrollBarVisibility="Never"
-        VerticalScrollBarVisibility="Never">
-        <VerticalStackLayout>
+        VerticalScrollBarVisibility="Default">
 
-            <!-- Header - Full Width -->
+        <VerticalStackLayout
+            Padding="30,50"
+            Spacing="20">
 
+            <!-- Header -->
             <Border 
-                Grid.Row="0" 
-                Grid.ColumnSpan="2"
-                Margin="24,0,24,0"
                 Stroke="{StaticResource Primary}"
                 BackgroundColor="{StaticResource Primary}"
                 StrokeThickness="5"
-                StrokeShape="RoundRectangle 16">
-
-                <Grid  
-          Padding="20" 
-          ColumnDefinitions="Auto,*,Auto">
+                StrokeShape="RoundRectangle 16"
+                Margin="24,0,24,0">
+                
+                <Grid
+                    Padding="20" 
+                    ColumnDefinitions="Auto,*,Auto">
 
                     <ImageButton 
-                    Grid.Column="0"
-                    WidthRequest="24"
-                    HeightRequest="24"
-                    Source="back_button.png"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"
-                    Clicked="BackButton_Clicked"/>
+                        Grid.Column="0"
+                        WidthRequest="24"
+                        HeightRequest="24"
+                        Source="back_button.png"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Clicked="BackButton_Clicked"/>
 
                     <Label
-                    Grid.Column="1"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Center"
-                    TextColor="{StaticResource Black}"
-                    Style="{StaticResource PageHeadingH1}"
-                    Text="Pizza Menu"/>
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        TextColor="{StaticResource Black}"
+                        Style="{StaticResource PageHeadingH1}"
+                        Text="Pizza Menu"/>
 
                     <ImageButton 
-                    Grid.Column="2"
-                    WidthRequest="34"
-                    HeightRequest="34"
-                    Source="menu.png"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
-                    Clicked="MenuButton_Clicked"/>
+                        Grid.Column="2"
+                        WidthRequest="34"
+                        HeightRequest="34"
+                        Source="menu.png"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Clicked="MenuButton_Clicked"/>
                 </Grid>
             </Border>
 
-            <VerticalStackLayout
-                Padding="20">
-                <Button 
-                    x:Name="AddPizzaTopButton"
-                    Margin="0,24,0,14"
-                    HorizontalOptions="Center"
-                    LineBreakMode="WordWrap"
-                    Style="{StaticResource BottomButton}"
-                    Text="Add Pizza"
-                    Clicked="CreatePizza_Clicked"/>
-                
-                <CollectionView
-                    x:Name="PizzaMenuItems"
-                    IsVisible="True"
-                    SelectionMode="Single"
-                    SelectionChanged="PizzaMenuItems_SelectionChanged">
+            <Button 
+                x:Name="AddPizzaTopButton"
+                Text="Add Pizza"
+                Style="{StaticResource BottomButton}"
+                Margin="0"
+                WidthRequest="300"
+                Clicked="CreatePizza_Clicked"/>
 
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout 
-                            Orientation="Vertical"
-                            ItemSpacing="8"/>
-                    </CollectionView.ItemsLayout>
+            <CollectionView
+                x:Name="PizzaMenuItems"
+                IsVisible="True"
+                SelectionMode="Single"
+                SelectionChanged="PizzaMenuItems_SelectionChanged"
+                Margin="24,0,24,0">
 
-                    <CollectionView.ItemTemplate>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8"/>
+                </CollectionView.ItemsLayout>
 
-                        <DataTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            Stroke="{StaticResource Primary}"
+                            BackgroundColor="{StaticResource White}"
+                            StrokeThickness="6"
+                            StrokeShape="RoundRectangle 20"
+                            Margin="0">
+
+                            <Grid 
+                                ColumnDefinitions="200, *, Auto" 
+                                RowDefinitions="Auto, Auto, Auto, Auto" 
+                                ColumnSpacing="0"
+                                Padding="32,24">
+
+                                <Image 
+                                    Source="{Binding Image}"
+                                    Grid.RowSpan="4"
+                                    Grid.Column="0"
+                                    WidthRequest="240"
+                                    HeightRequest="240"
+                                    Aspect="AspectFit"
+                                    Margin="0,-180,140,-240"/>
+
+                                <Label 
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="{Binding Name}"
+                                    Style="{StaticResource PageHeadingH1}"/>
+
+                                <Label 
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    Text="{Binding Price, StringFormat='€{0:F2}'}"
+                                    Style="{StaticResource PageHeadingH1}"/>
+
+                                <Label 
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Size, StringFormat='∅ {0} cm'}"
+                                    Style="{StaticResource ParagraphText}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <ContentView
+                        Margin="24,0,24,0">
+                        <Grid
+                              RowDefinitions="*,Auto,*">
+
                             <Border 
-                                Stroke="{StaticResource Primary}"
-                                BackgroundColor="{StaticResource White}"
-                                StrokeThickness="6"
-                                StrokeShape="RoundRectangle 16,16,16,16"
-                                Padding="0, 0, 0, 0"
-                                HorizontalOptions="Center">
+                                Grid.Row="1"
+                                Padding="32,20"
+                                BackgroundColor="{StaticResource Success}"
+                                VerticalOptions="Center"
+                                StrokeShape="{RoundRectangle CornerRadius=20}">
 
-                                <Grid 
-                                    ColumnDefinitions="200, *, Auto" 
-                                    RowDefinitions="Auto, Auto, Auto, Auto" 
-                                    ColumnSpacing="0"
-                                    Padding="32,24">
-
-
-                                    <Image 
-                                        Source="{Binding Image}"
-                                        Grid.RowSpan="4"
-                                        Grid.Column="0"
-                                        WidthRequest="240"
-                                        HeightRequest="240"
-                                        Aspect="AspectFit"
-                                        Margin="0,-180,140,-240"/>
-
-                                    <Label 
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        Text="{Binding Name}"
-                                        Style="{StaticResource PageHeadingH1}"/>
-
-                                    <Label Grid.Row="0"
-                                            Grid.Column="2"
-                                            Text="{Binding Price, StringFormat='€{0:F2}'}"
-                                            Style="{StaticResource PageHeadingH1}" />
-
-                                    <Label Grid.Row="1"
-                                            Grid.Column="1"
-                                            Text="{Binding Size, StringFormat='∅ {0} cm'}"
-                                            Style="{StaticResource ParagraphText}" />
-
-
-                                    <!--<Label Grid.Row="2"
-                                            Grid.Column="1"
-                                            Text="{Binding Toppings, StringFormat='Toppings: {0}'}"
-                                            Style="{StaticResource ParagraphText}" />
-
-                                    <Label Grid.Row="3"
-                                            Grid.Column="1"
-                                            Text="{Binding Sauce, StringFormat='Sauce: {0}'}"
-                                            Style="{StaticResource ParagraphText}" />-->
-
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-
-                    </CollectionView.ItemTemplate>
-                    
-                    <CollectionView.EmptyView>
-                        <ContentView>
-                            <StackLayout
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center">
-                                <Border
-                                    Padding="32,20"
-                                    BackgroundColor="{StaticResource Success}"
-                                    HorizontalOptions="Fill"
-                                    VerticalOptions="End"
-                                    Margin="0,24,0,14">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle CornerRadius="18" />
-                                    </Border.StrokeShape>
-                                    <VerticalStackLayout Spacing="14">
-
-                                        <Label
-                                            Grid.Row="0"
-                                            Text="Mamma mia!"
-                                            TextColor="Black"
-                                            HorizontalTextAlignment="Center"
-                                            Style="{StaticResource PageHeadingH1}"/>
-
-                                        <Label
-                                            Grid.Row="1"
-                                            Text="No pizzas on the menu yet. Let’s fix that by adding one!"
-                                            TextColor="Black"
-                                            HorizontalTextAlignment="Center"
-                                            Style="{StaticResource ParagraphText}"/>
-
-                                        <Button 
-                                            Grid.Row="2"
-                                            Text="Add Pizza"
+                                <VerticalStackLayout Spacing="14" HorizontalOptions="Center">
+                                    
+                                    <Label Text="Mamma mia!"
+                                           TextColor="Black"
+                                           HorizontalTextAlignment="Center"
+                                           Style="{StaticResource PageHeadingH1}"/>
+                                    
+                                    <Label Text="No pizzas on the menu yet. Let’s fix that by adding one!"
+                                           TextColor="Black"
+                                           HorizontalTextAlignment="Center"
+                                           Style="{StaticResource ParagraphText}"/>
+                                    
+                                    <Button Text="Add Pizza"
                                             Style="{StaticResource BottomButton}"
                                             Clicked="CreatePizza_Clicked"
                                             HorizontalOptions="Center"/>
-                                    </VerticalStackLayout>
-                                </Border>
+                                </VerticalStackLayout>
+                            
+                            </Border>
 
-                            </StackLayout>
-                        </ContentView>
-                    
-                    </CollectionView.EmptyView>
-                </CollectionView>
-            </VerticalStackLayout>
+                        </Grid>
+                    </ContentView>
+                </CollectionView.EmptyView>
+
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -3,30 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:PizzaPlace.ViewModels"
              x:Class="PizzaPlace.Views.PizzaCreateUpdate"
-             Title="PizzaCreateUpdate">
+             BackgroundColor="{StaticResource PrimaryLight}">
 
     <ContentPage.BindingContext>
         <viewmodels:CreateUpdateViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.Background>
-        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-            <GradientStop Color="{StaticResource PrimaryGradient}" Offset="1.0"/>
-            <GradientStop Color="{StaticResource PrimaryLight}" Offset="0.0"/>
-        </LinearGradientBrush>
-    </ContentPage.Background>
-
     <ScrollView>
     <VerticalStackLayout
         x:Name = "MainContentLayout"
-        Padding="30, 50">
+        Padding="50, 50">
             <Border 
                 Grid.Row="0" 
                 Grid.ColumnSpan="2"
-                Margin="0, 4,0 ,0"
                 Stroke="{StaticResource Primary}"
                 BackgroundColor="{StaticResource Primary}"
-                StrokeThickness="5"
+                StrokeThickness="6"
                 StrokeShape="RoundRectangle 16">
                 <Grid  
                     Padding="20" 
@@ -73,7 +65,7 @@
             BackgroundColor="{StaticResource White}"
             Stroke="{StaticResource Primary}"
             StrokeShape="RoundRectangle 20"
-            StrokeThickness="3">
+            StrokeThickness="6">
         
         <VerticalStackLayout Padding="10">
             
@@ -109,7 +101,7 @@
             <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
             <Entry
                 Text="{Binding Pizza.Toppings}"
-                Placeholder="Price the Pizza"
+                Placeholder="Top the Pizza"
                 Grid.Column="1"
                 Style="{StaticResource CreateUpdateInputBox}"
                 >
