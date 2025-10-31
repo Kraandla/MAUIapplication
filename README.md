@@ -38,7 +38,7 @@ PizzaPlace eesmärk on:
 
 ## 📸 Ekraanipildid
 ### StartPage
-![StartPage](https://via.placeholder.com/400x300?text=StartPage)
+<img src=img/StartPage.jpg)
 
 ### PizzaMenu
 ![PizzaMenu](https://via.placeholder.com/400x300?text=PizzaMenu)
