@@ -113,7 +113,7 @@
 
                     <!--Toppings info box-->
                     <Grid
-                    Style="{StaticResource InputBoxGrid}">
+                     Style="{StaticResource InputBoxGrid}">
                         <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
 
                         <Border 
@@ -121,12 +121,21 @@
                         StrokeThickness="1"
                         Stroke="{StaticResource PrimaryLight}"
                         BackgroundColor="{StaticResource PrimaryLight}"
-                        StrokeShape="RoundRectangle 14">
+                        StrokeShape="RoundRectangle 14">  
 
-                            <Entry
+                            <Editor
                             Text="{Binding Pizza.Toppings}"
                             Placeholder="Top the Pizza"
-                            Style="{StaticResource CreateUpdateInputBox}" />
+                            FontSize="20"
+                            TextColor="{StaticResource Black}"
+                            BackgroundColor="{StaticResource PrimaryLight}"
+                            PlaceholderColor="{StaticResource Gray}"
+                            FontFamily="Lato-Regular"
+                            AutoSize="TextChanges"
+                            MinimumHeightRequest="46"
+                            Margin="0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Fill" />
                         </Border>
                     </Grid>
 
