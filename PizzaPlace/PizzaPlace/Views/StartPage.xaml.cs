@@ -24,7 +24,7 @@ public partial class StartPage : ContentPage
         if (Width <= 0 || Height <= 0)
             return;
 
-        double imgWidth = Width * 0.8;
+        double imgWidth = Width * 0.7;
         SlideshowImage.WidthRequest = imgWidth;
         SlideshowImage.HeightRequest = imgWidth;
     }
