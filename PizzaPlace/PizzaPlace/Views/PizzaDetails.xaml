@@ -88,49 +88,63 @@
 
                             <Label
                            
-                                LineBreakMode="WordWrap"
-                                TextColor="{StaticResource Black}"
-                                Style="{StaticResource MainInfoLabel}"
-                                VerticalTextAlignment="Center"
-                                >
-                                <Label.Text>
-                                    <MultiBinding StringFormat="Size: {0} cm">
-                                        <Binding Path="Size" />
-                                    </MultiBinding>
-                                </Label.Text>
+                                LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span 
+                                            Text="Size: "
+                                            Style="{StaticResource MainInfoLabel}" />
+                                        <Span 
+                                            Text="{Binding Size, StringFormat='{0} cm'}"
+                                            Style="{StaticResource ParagraphText}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
                             </Label>
-                        
+
+
+                            <Label
+                                LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+
+                                        <Span 
+                                            Text="Toppings: "
+                                            Style="{StaticResource MainInfoLabel}" />
+                                        <Span 
+                                            Text="{Binding Toppings}"
+                                            Style="{StaticResource ParagraphText}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            
+                            <Label
+                                LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+
+                                        <Span 
+                                            Text="Sauce: "
+                                            Style="{StaticResource MainInfoLabel}" />
+                                        <Span 
+                                            Text="{Binding Sauce}"
+                                            Style="{StaticResource ParagraphText}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                           
                             <Label
-                                LineBreakMode="WordWrap"
-                                TextColor="{StaticResource Black}"
-                                Style="{StaticResource MainInfoLabel}"
-                                >
-                                <Label.Text>
-                                    <MultiBinding StringFormat="Toppings:  {0}">
-                                        <Binding Path="Toppings" />
-                                    </MultiBinding>
-                                </Label.Text>
-                            </Label>
-                            <Label
-                                LineBreakMode="WordWrap"
-                                TextColor="{StaticResource Black}"
-                                Style="{StaticResource MainInfoLabel}">
-                                <Label.Text>
-                                    <MultiBinding StringFormat="Sauce: {0}">
-                                        <Binding Path="Sauce"/>
-                                    </MultiBinding>
-                                </Label.Text>
-                            </Label>
-                            <Label
-                                LineBreakMode="WordWrap"
-                                TextColor="{StaticResource Black}"
-                                Style="{StaticResource MainInfoLabel}">
-                                <Label.Text>
-                                    <MultiBinding StringFormat="Price: {0} €">
-                                        <Binding Path="Price"/>
-                                    </MultiBinding>
-                                </Label.Text>
+                                LineBreakMode="WordWrap">
+                                <Label.FormattedText>
+                                    <FormattedString>
+
+                                        <Span 
+                                            Text="Price: "
+                                            Style="{StaticResource MainInfoLabel}" />
+                                        <Span 
+                                            Text="{Binding Price, StringFormat='{0} €'}"
+                                            Style="{StaticResource ParagraphText}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
                             </Label>
 
 
