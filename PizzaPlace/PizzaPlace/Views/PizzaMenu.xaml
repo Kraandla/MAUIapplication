@@ -124,7 +124,8 @@
                         <Grid
                               RowDefinitions="*,Auto,*">
 
-                            <Border 
+                            <Border
+                                Margin="0,14,0,0"
                                 Grid.Row="1"
                                 Padding="32,20"
                                 BackgroundColor="{StaticResource Success}"
