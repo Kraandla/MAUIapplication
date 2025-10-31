@@ -5,6 +5,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
+    <!--Text styles-->
+
+    <!--Font Base-->
+    <!--Bold Base-->
+    <Style TargetType="Label" x:Key="BoldText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Montserrat-Bold" />
+    </Style>
+
+    <!--Regular Base-->
+    <Style TargetType="Label" x:Key="RegularText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Lato-Regular" />
+    </Style>
+
+    <!--Light Base-->
+    <Style TargetType="Label" x:Key="LightText">
+        <Setter Property="FontAutoScalingEnabled" Value="False" />
+        <Setter Property="FontFamily" Value="Lato-Light" />
+    </Style>
+    
     <!-- Buttons -->
     <Style TargetType="Button" x:Key="BottomButton">
         <Setter Property="FontSize" Value="22" />
@@ -12,20 +33,34 @@
         <Setter Property="Padding" Value="64,0" />
         <Setter Property="TextColor" Value="{StaticResource Black}" />
         <Setter Property="FontFamily" Value="Monsterrat-Bold" />
-        <Setter Property="CornerRadius" Value="13" />
+        <Setter Property="CornerRadius" Value="14" />
         <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="BorderColor" Value="{StaticResource BorderColor}" />
     </Style>
 
-    <Style TargetType="Button" x:Key="AddRemovePictureButton">
-        <Setter Property="FontSize" Value="10" />
+    <!-- Add Image Buttons -->
+    <Style TargetType="Button" x:Key="AddPictureButton">
+        <Setter Property="FontSize" Value="16" />
         <Setter Property="HeightRequest" Value="46" />
-        <Setter Property="WidthRequest" Value="56" />
+        <Setter Property="WidthRequest" Value="80" />
         <Setter Property="Padding" Value="0,0" />
         <Setter Property="TextColor" Value="{StaticResource Black}" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Success}" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
+    </Style>
+
+    <!-- Remove Image Buttons -->
+    <Style TargetType="Button" x:Key="RemovePictureButton">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HeightRequest" Value="46" />
+        <Setter Property="WidthRequest" Value="80" />
+        <Setter Property="Padding" Value="0,0" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Danger}" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="BorderColor" Value="{StaticResource PrimaryLight}" />
     </Style>
@@ -53,11 +88,11 @@
         <Setter Property="Margin" Value="0"/>
         <Setter Property="VerticalOptions" Value="Start"/>
         <Setter Property="HorizontalOptions" Value="Fill"/>
-        <Setter Property="FontFamily" Value="Lato-Regular" />
+        <Setter Property="FontFamily" Value="Lato-Regular"/>
     </Style>
 
-    <Style TargetType="Label" x:Key="MainInfoLabel">
-        <Setter Property="FontSize" Value="24"/>
+    <Style TargetType="Label" x:Key="MainInfoLabel" BasedOn="{StaticResource BoldText}">
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextColor" Value="{StaticResource Black}"/>
         <Setter Property="Margin" Value="0,10,0,10"/>
         <Setter Property="HorizontalOptions" Value="Start"/>
@@ -67,26 +102,6 @@
         <Setter Property="Margin" Value="0,5,0,5"/>
         <Setter Property="HorizontalOptions" Value="Fill"/>
         <Setter Property="ColumnDefinitions" Value="*,2.96*"/>
-    </Style>
-    <!--Text styles-->
-
-    <!--Font Base-->
-    <!--Bold Base-->
-    <Style TargetType="Label" x:Key="BoldText">
-        <Setter Property="FontAutoScalingEnabled" Value="False" />
-        <Setter Property="FontFamily" Value="Montserrat-Bold" />
-    </Style>
-
-    <!--Regular Base-->
-    <Style TargetType="Label" x:Key="RegularText">
-        <Setter Property="FontAutoScalingEnabled" Value="False" />
-        <Setter Property="FontFamily" Value="Lato-Regular" />
-    </Style>
-
-    <!--Light Base-->
-    <Style TargetType="Label" x:Key="LightText">
-        <Setter Property="FontAutoScalingEnabled" Value="False" />
-        <Setter Property="FontFamily" Value="Lato-Light" />
     </Style>
 
     <!--Headings-->
@@ -104,7 +119,7 @@
 
     <!--Paragraph-->
     <Style TargetType="Label" x:Key="ParagraphText" BasedOn="{StaticResource LightText}">
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="TextColor" Value="Black" />
     </Style>
 </ResourceDictionary>
