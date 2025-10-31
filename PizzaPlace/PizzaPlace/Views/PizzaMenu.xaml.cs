@@ -27,12 +27,16 @@ public partial class PizzaMenu : ContentPage
     {
         try
         {
+            PizzaMenuItems.IsVisible = false;
+            AddPizzaTopButton.IsVisible = false;
+
             var pizzas = await _db.GetAllAsync<Pizza>();
 
             _pizzas.Clear();
             foreach (var pizza in pizzas)
                 _pizzas.Add(pizza);
 
+            PizzaMenuItems.IsVisible = true;
             AddPizzaTopButton.IsVisible = _pizzas.Any();
         }
 

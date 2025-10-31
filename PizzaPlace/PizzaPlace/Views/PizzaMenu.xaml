@@ -11,13 +11,13 @@
 
         <VerticalStackLayout
             Padding="30,50"
-            Spacing="20">
+            Spacing="0">
 
             <!-- Header -->
             <Border 
                 Stroke="{StaticResource Primary}"
                 BackgroundColor="{StaticResource Primary}"
-                StrokeThickness="5"
+                StrokeThickness="6"
                 StrokeShape="RoundRectangle 16"
                 Margin="24,0,24,0">
                 
@@ -57,7 +57,7 @@
                 x:Name="AddPizzaTopButton"
                 Text="Add Pizza"
                 Style="{StaticResource BottomButton}"
-                Margin="0"
+                Margin="0,18,0,10"
                 WidthRequest="300"
                 Clicked="CreatePizza_Clicked"/>
 
