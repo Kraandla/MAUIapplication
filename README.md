@@ -41,13 +41,13 @@ PizzaPlace eesmärk on:
 <img src="img/StartPage.jpg" alt="Start Page.jpg" width="300" height="500">
 
 ### Pizza Menu
-<img src="img/PizzaMenu" alt="Pizza Menu" width="300" height="500">
+<img src="img/PizzaMenu.jpg" alt="Pizza Menu" width="300" height="500">
 
 ### Pizza Details
-<img src="img/PizzaDetails" alt="Pizza Details" width="300" height="500">
+<img src="img/PizzaDetails.jpg" alt="Pizza Details" width="300" height="500">
 
 ### Pizza Create/Update
-<img src="img/CreateUpdate" alt="Pizza Create/Update" width="300" height="500">
+<img src="img/CreateUpdate.jpg" alt="Pizza Create/Update" width="300" height="500">
 
 ---
 
