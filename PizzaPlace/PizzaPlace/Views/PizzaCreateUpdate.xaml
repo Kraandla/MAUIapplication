@@ -1,12 +1,270 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:PizzaPlace.ViewModels"
              x:Class="PizzaPlace.Views.PizzaCreateUpdate"
-             Title="PizzaCreateUpdate">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             BackgroundColor="{StaticResource PrimaryLight}">
+
+    <ContentPage.BindingContext>
+        <viewmodels:CreateUpdateViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            x:Name = "MainContentLayout"
+            Padding="50, 50">
+
+            <Border 
+                Grid.Row="0" 
+                Grid.ColumnSpan="2"
+                Stroke="{StaticResource Primary}"
+                BackgroundColor="{StaticResource Primary}"
+                StrokeThickness="6"
+                StrokeShape="RoundRectangle 16">
+                
+                <Grid  
+                    Padding="20" 
+                    ColumnDefinitions="Auto,*,Auto">
+
+                    <ImageButton
+                      Grid.Column="0"
+                      WidthRequest="24"
+                      HeightRequest="24"
+                      Source="back_button.png"
+                      HorizontalOptions="Start"
+                      VerticalOptions="Center"
+                      Clicked="BackButton_Clicked">
+                    </ImageButton>
+
+                    <Label
+                      Grid.Column="1"
+                      Style="{StaticResource PageHeadingH1}"
+                      Text="Create/Update"
+                      TextColor="{StaticResource Black}"
+                      HorizontalTextAlignment="Center"
+                      VerticalOptions="Center"/>
+
+                    <ImageButton 
+                      Grid.Column="2"
+                      WidthRequest="34"
+                      HeightRequest="34"
+                      Source="menu.png"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center"
+                      Clicked="MenuButton_Clicked"/>
+                </Grid>
+            </Border>
+
+            <HorizontalStackLayout
+                Margin="0,20"
+                Grid.Row="1"
+                Grid.Column="0">
+            </HorizontalStackLayout>
+
+
+            <!--Input box fields-->
+            <Border
+            BackgroundColor="{StaticResource White}"
+            Stroke="{StaticResource Primary}"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="6">
+
+
+                <VerticalStackLayout Padding="20">
+
+                    <!--Name input box-->
+                    <Grid
+                    Style="{StaticResource InputBoxGrid}">
+                        <Label Text="Name:" Style="{StaticResource MainInfoLabel}"/>
+
+                        <Border 
+                        Grid.Column="1"
+                        StrokeThickness="1"
+                        Stroke="{StaticResource PrimaryLight}"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeShape="RoundRectangle 14">
+
+                            <Entry
+                            Text="{Binding Pizza.Name}"
+                            Placeholder="Name the Pizza"
+                            Style="{StaticResource CreateUpdateInputBox}" />
+                        </Border>
+                    </Grid>
+
+                    <!--Size input box-->
+                    <Grid
+                    Style="{StaticResource InputBoxGrid}">
+                        <Label Text="Size:" Style="{StaticResource MainInfoLabel}"/>
+
+                        <Border 
+                        Grid.Column="1"
+                        StrokeThickness="1"
+                        Stroke="{StaticResource PrimaryLight}"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeShape="RoundRectangle 14">
+
+                            <Entry
+                            Text="{Binding Pizza.Size}"
+                            Placeholder="Size the Pizza"
+                            Style="{StaticResource CreateUpdateInputBox}" />
+                        </Border>
+                    </Grid>
+
+                    <!--Toppings info box-->
+                    <Grid
+                     Style="{StaticResource InputBoxGrid}">
+                        <Label Text="Toppings:" Style="{StaticResource MainInfoLabel}"/>
+
+                        <Border 
+                        Grid.Column="1"
+                        StrokeThickness="1"
+                        Stroke="{StaticResource PrimaryLight}"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeShape="RoundRectangle 14">  
+
+                            <Editor
+                            Text="{Binding Pizza.Toppings}"
+                            Placeholder="Top the Pizza"
+                            FontSize="20"
+                            TextColor="{StaticResource Black}"
+                            BackgroundColor="{StaticResource PrimaryLight}"
+                            PlaceholderColor="{StaticResource Gray}"
+                            FontFamily="Lato-Regular"
+                            AutoSize="TextChanges"
+                            MinimumHeightRequest="46"
+                            Margin="0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Fill" />
+                        </Border>
+                    </Grid>
+
+                    <!--Sauce info box-->
+                    <Grid
+                    Style="{StaticResource InputBoxGrid}">
+                        <Label Text="Sauce:" Style="{StaticResource MainInfoLabel}"/>
+                        <Border 
+                        Grid.Column="1"
+                        StrokeThickness="1"
+                        Stroke="{StaticResource PrimaryLight}"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeShape="RoundRectangle 14">
+
+                            <Entry
+                            Text="{Binding Pizza.Sauce}"
+                            Placeholder="Sauce the Pizza"
+                            Style="{StaticResource CreateUpdateInputBox}" />
+                        </Border>
+                    </Grid>
+
+                    <!--Price input box-->
+                    <Grid
+                    Style="{StaticResource InputBoxGrid}">
+                        <Label Text="Price:" Style="{StaticResource MainInfoLabel}"/>
+                        <Border 
+                        Grid.Column="1"
+                        StrokeThickness="1"
+                        Stroke="{StaticResource PrimaryLight}"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        StrokeShape="RoundRectangle 14">
+
+                            <Entry
+                            Text="{Binding Pizza.Price}"
+                            Placeholder="Price the Pizza"
+                            Style="{StaticResource CreateUpdateInputBox}" />
+                        </Border>
+                    </Grid>
+
+                    <!--Image input container-->
+                    <Grid 
+                    Margin="0,10,0,0">
+                        <Border 
+                        Stroke="{StaticResource PrimaryLight}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 14"
+                        BackgroundColor="{StaticResource PrimaryLight}"
+                        HeightRequest="46"
+                        Padding="0">
+
+                            <Grid ColumnDefinitions="*,Auto" 
+                              VerticalOptions="Fill" 
+                              HorizontalOptions="Fill">
+
+                                <Label
+                                Grid.Column="0"
+                                Text="{Binding PizzaImageName}"
+                                TextColor="{StaticResource Black}"
+                                BackgroundColor="Transparent"
+                                FontFamily="Lato-Light"
+                                FontSize="22"
+                                VerticalTextAlignment="Center"
+                                Padding="12,0,8,0"
+                                LineBreakMode="TailTruncation"/>
+
+                                <!-- Add / Delete image buttons -->
+                                <HorizontalStackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                VerticalOptions="Fill">
+
+                                    <!-- Add -->
+                                    <Border
+                                        StrokeThickness="0"
+                                        BackgroundColor="{StaticResource Success}"
+                                        VerticalOptions="Fill">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="16,0,16,0" />
+                                        </Border.StrokeShape>
+                                        <Button
+                                            Text="Add"
+                                            Style="{StaticResource AddPictureButton}"
+                                            Command="{Binding PickImageCommand}"
+                                            VerticalOptions="Fill" />
+                                    </Border>
+
+                                    <!-- Delete -->
+                                    <Border
+                                        StrokeThickness="0"
+                                        BackgroundColor="{StaticResource Danger}"
+                                        VerticalOptions="Fill">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="0,16,0,16" />
+                                        </Border.StrokeShape>
+                                        <Button
+                                            Text="Del"
+                                            Style="{StaticResource RemovePictureButton}"
+                                            Command="{Binding DeleteImageCommand}"
+                                            VerticalOptions="Fill" />
+                                    </Border>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <!-- Image Preview -->
+                    <Border
+                    Margin="0,10,0,0"
+                    Stroke="{StaticResource Primary}"
+                    StrokeThickness="2"
+                    BackgroundColor="{StaticResource White}"
+                    StrokeShape="RoundRectangle 16">
+                        <Image
+                        Source="{Binding Pizza.Image}"
+                        Aspect="AspectFit"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    </Border>
+
+                </VerticalStackLayout>
+            </Border>
+            <!--Save pizza button-->
+            <Button  
+                HorizontalOptions="Fill"  
+                Margin="0,20,0,0"  
+                Style="{StaticResource BottomButton}" 
+                Text="Save Pizza"
+                Command="{Binding SavePizzaCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
