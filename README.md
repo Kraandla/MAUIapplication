@@ -37,11 +37,17 @@ PizzaPlace eesmärk on:
 ---
 
 ## 📸 Ekraanipildid
-### StartPage
-<img src=img/StartPage.jpg)
+### Start Page
+<img src="img/StartPage.jpg" alt="Start Page.jpg" width="300" height="500">
 
-### PizzaMenu
-![PizzaMenu](https://via.placeholder.com/400x300?text=PizzaMenu)
+### Pizza Menu
+<img src="img/PizzaMenu" alt="Pizza Menu" width="300" height="500">
+
+### Pizza Details
+<img src="img/PizzaDetails" alt="Pizza Details" width="300" height="500">
+
+### Pizza Create/Update
+<img src="img/CreateUpdate" alt="Pizza Create/Update" width="300" height="500">
 
 ---
 
