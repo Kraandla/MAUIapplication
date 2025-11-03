@@ -10,7 +10,7 @@ namespace PizzaPlace.Models
         public int? Size { get; set; }
         public string Toppings { get; set; }
         public string Sauce { get; set; }
-        public double Price { get; set; }
+        public double? Price { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
         public Pizza Clone() => MemberwiseClone() as Pizza;
@@ -20,6 +20,8 @@ namespace PizzaPlace.Models
                 return (false, "Pizza name is required.");
             if (Size <= 0)
                 return (false, "Pizza size must be greater than zero.");
+            if (Size == null)
+                return (false, "You forgot to add a size for the pizza!");
             if (string.IsNullOrWhiteSpace(Toppings))
                 return (false, "At least one topping is required.");
             if(string.IsNullOrWhiteSpace(Sauce))
