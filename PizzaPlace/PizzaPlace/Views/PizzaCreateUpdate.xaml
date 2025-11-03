@@ -40,7 +40,7 @@
                     <Label
                       Grid.Column="1"
                       Style="{StaticResource PageHeadingH1}"
-                      Text="Create/Update"
+                      Text="{Binding Header}"
                       TextColor="{StaticResource Black}"
                       HorizontalTextAlignment="Center"
                       VerticalOptions="Center"/>
