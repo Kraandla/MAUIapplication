@@ -39,7 +39,7 @@ namespace PizzaPlace.ViewModels
             var (isValid, errorMessage) = Pizza.Validate();
             if (!isValid)
             {
-                await Application.Current.MainPage.DisplayAlert("Validation Error", errorMessage, "OK");
+                await Application.Current.MainPage.DisplayAlert("Oops! You forgot something!", errorMessage, "OK");
                 return;
             }
 
@@ -59,7 +59,6 @@ namespace PizzaPlace.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Pizza saved successfully!", "OK");
                 await Application.Current.MainPage.Navigation.PopAsync();
-
             }
             else
             {

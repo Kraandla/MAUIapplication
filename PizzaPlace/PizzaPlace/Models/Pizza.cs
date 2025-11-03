@@ -17,15 +17,15 @@ namespace PizzaPlace.Models
         public (bool isValid, string errorMessage) Validate()
         {
             if (string.IsNullOrWhiteSpace(Name))
-                return (false, "Name is required.");
+                return (false, "Pizza name is required.");
             if (Size <= 0)
-                return (false, "Size must be greater than zero.");
+                return (false, "Pizza size must be greater than zero.");
             if (string.IsNullOrWhiteSpace(Toppings))
                 return (false, "At least one topping is required.");
             if(string.IsNullOrWhiteSpace(Sauce))
-                return (false, "Sauce is required.");
+                return (false, "The pizza needs sauce on it.");
             if (Price <= 0)
-                return (false, "Price cannot be less than 1.");
+                return (false, "Your pizza needs to be priced above 0.");
             return (true, null);
         }
     }
