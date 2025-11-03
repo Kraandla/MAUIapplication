@@ -28,6 +28,8 @@ namespace PizzaPlace.Models
                 return (false, "The pizza needs sauce on it.");
             if (Price <= 0)
                 return (false, "Your pizza needs to be priced above 0.");
+            if (Price == null)
+                return (false, "You forgot to add a price!");
             return (true, null);
         }
     }
